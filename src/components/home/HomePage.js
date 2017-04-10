@@ -6,7 +6,9 @@ class HomePage extends React.Component {
         return (
             <div>
                 <h1>Home</h1>
-                <p>sdf sdf sd</p>
+                <p>How many avos?</p>
+                <Link to="/calc">use the calc</Link>
+{" | "}
                 <Link to="/about">learn more</Link>
             </div>
         );

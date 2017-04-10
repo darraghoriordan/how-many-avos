@@ -4,6 +4,7 @@ import {
 } from 'react-router-dom'
 import HomePage from './components/home/HomePage';
 import AboutPage from './components/about/AboutPage';
+import AvoCalculator from './components/avoCalculator/AvoCalculator';
 
 class AppRoutes extends React.Component{
     render(){
@@ -11,6 +12,7 @@ class AppRoutes extends React.Component{
                 <div>
         <Route exact path="/" component={HomePage}/>
       <Route path="/about" component={AboutPage}/>
+      <Route path="/calc" component={AvoCalculator}/>
  </div>)
     }
 }
