@@ -1,3 +1,3 @@
 export function createCourse(course){
-    return {type: 'CREATE_COOURSE'}
+    return {type: 'CREATE_COURSE', course}
 }
