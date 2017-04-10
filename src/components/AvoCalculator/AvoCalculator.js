@@ -1,4 +1,6 @@
 import React from 'react';
+import {connect} from 'react-redux';
+import * as courseActions from '../..actions/courseActions';
 
 class AvoCalculator extends React.Component{
     constructor(props, context){
@@ -18,8 +20,9 @@ class AvoCalculator extends React.Component{
         this.setState({course: course});
     }
 onClickSave() {
-    alert(`Saving ${this.state.course.title}`);
+thi.props.dispatch(courseActions.createCourse(this.state.course));
 }
+
     render(){
         return (
             <div>
@@ -38,4 +41,10 @@ onClickSave() {
     }
 }
 
-export default AvoCalculator;
+function mapStateToProps(state, ownProps){
+    return {
+        courses: state.courses
+    };
+}
+
+export default connect(mapStateToProps)(AvoCalculator);
