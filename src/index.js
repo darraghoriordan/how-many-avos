@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom'
-import configureStore from './store/configureStore';
+import configureStore from './configureStore';
 import './index.css';
 import App from './App';
 import AppRoutes from './AppRoutes';
