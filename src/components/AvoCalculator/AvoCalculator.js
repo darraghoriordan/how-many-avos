@@ -1,50 +1,74 @@
 import React from 'react';
 import {connect} from 'react-redux';
-import * as courseActions from '../..actions/courseActions';
+import {bindActionCreators} from 'redux';
+import * as courseActions from '../../actions/courseActions';
 
-class AvoCalculator extends React.Component{
-    constructor(props, context){
-        super (props, context);
+class AvoCalculator extends React.Component {
+    constructor(props, context) {
+        super(props, context)
 
         this.state = {
-            course: {title: ''}
+            course: {
+                title: ''
+            }
         };
 
-        this.onTitleChange = this.onTitleChange.bind(this);
-        this.onClickSave = this.onClickSave.bind(this);
+        this.onTitleChange = this
+            .onTitleChange
+            .bind(this);
+        this.onClickSave = this
+            .onClickSave
+            .bind(this);
     }
 
-    onTitleChange(event){
+    onTitleChange(event) {
         const course = this.state.course;
         course.title = event.target.value;
         this.setState({course: course});
     }
-onClickSave() {
-thi.props.dispatch(courseActions.createCourse(this.state.course));
-}
 
-    render(){
+    onClickSave() {
+        this
+            .props
+            .actions
+            .createCourse(this.state.course);
+    }
+
+    courseRow(course, index) {
+        return (
+            <div key={index}>{course.title}</div>
+        )
+    }
+
+    render() {
+
         return (
             <div>
+                <h2>{this
+                        .props
+                        .courses
+                        .map(this.courseRow)}</h2>
                 <h1>Calculator</h1>
-                <input 
-                type="text"
-                onChange={this.onTitleChange}
-                value={this.state.course.title} />
+                <input
+                    type="text"
+                    onChange={this.onTitleChange}
+                    value={this.state.course.title}/>
 
-                <input 
-                type="submit" 
-                value="Save"
-                onClick={this.onClickSave}/>
+                <input type="submit" value="Save" onClick={this.onClickSave}/>
             </div>
         )
     }
 }
 
-function mapStateToProps(state, ownProps){
+function mapStateToProps(state, ownProps) {
+
+    return {courses: state.courses};
+}
+
+function mapDispatchToProps(dispatch) {
     return {
-        courses: state.courses
+        actions: bindActionCreators(courseActions, dispatch)
     };
 }
 
-export default connect(mapStateToProps)(AvoCalculator);
+export default connect(mapStateToProps, mapDispatchToProps)(AvoCalculator);
