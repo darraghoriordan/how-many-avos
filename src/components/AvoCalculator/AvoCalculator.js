@@ -12,26 +12,6 @@ class AvoCalculator extends React.Component {
                 title: ''
             }
         };
-
-        this.onTitleChange = this
-            .onTitleChange
-            .bind(this);
-        this.onClickSave = this
-            .onClickSave
-            .bind(this);
-    }
-
-    onTitleChange(event) {
-        const course = this.state.course;
-        course.title = event.target.value;
-        this.setState({course: course});
-    }
-
-    onClickSave() {
-        this
-            .props
-            .actions
-            .createCourse(this.state.course);
     }
 
     courseRow(course, index) {
@@ -44,17 +24,12 @@ class AvoCalculator extends React.Component {
 
         return (
             <div>
-                <h2>{this
-                        .props
-                        .courses
-                        .map(this.courseRow)}</h2>
-                <h1>Calculator</h1>
-                <input
-                    type="text"
-                    onChange={this.onTitleChange}
-                    value={this.state.course.title}/>
+                <h1>courses</h1>
+                {this
+                    .props
+                    .courses
+                    .map(this.courseRow)}
 
-                <input type="submit" value="Save" onClick={this.onClickSave}/>
             </div>
         )
     }
