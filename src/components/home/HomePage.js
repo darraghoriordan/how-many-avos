@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link, IndexLink} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 
 class HomePage extends React.Component {
     render() {
@@ -7,7 +7,7 @@ class HomePage extends React.Component {
             <div>
                 <h1>Home</h1>
                 <p>How many avos?</p>
-                      <IndexLink to="/">Home</IndexLink>
+                <Link to="/">Home</Link>
                 {" | "}
                 <Link to="/courses">courses module</Link>
                 {" | "}
