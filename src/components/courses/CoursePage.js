@@ -2,9 +2,9 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as courseActions from '../../actions/courseActions';
-import CourseList from '../courses/CourseList';
+import CourseList from './CourseList';
 
-class AvoCalculator extends React.Component {
+class CoursePage extends React.Component {
 
     render() {
         const {courses} = this.props;
@@ -28,4 +28,4 @@ function mapDispatchToProps(dispatch) {
     };
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(AvoCalculator);
+export default connect(mapStateToProps, mapDispatchToProps)(CoursePage);
