@@ -15,14 +15,20 @@ export class ManageCoursePage extends React.Component {
       saving: false
     };
 
-    this.updateCourseState = this.updateCourseState.bind(this);
-    this.saveCourse = this.saveCourse.bind(this);
+    this.updateCourseState = this
+      .updateCourseState
+      .bind(this);
+    this.saveCourse = this
+      .saveCourse
+      .bind(this);
   }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.course.id !== nextProps.course.id) {
       // Necessary to populate form when existing course is loaded directly.
-      this.setState({course: Object.assign({}, nextProps.course)});
+      this.setState({
+        course: Object.assign({}, nextProps.course)
+      });
     }
   }
 
@@ -46,7 +52,6 @@ export class ManageCoursePage extends React.Component {
     return formIsValid;
   }
 
-
   saveCourse(event) {
     event.preventDefault();
 
@@ -56,7 +61,10 @@ export class ManageCoursePage extends React.Component {
 
     this.setState({saving: true});
 
-    this.props.actions.saveCourse(this.state.course)
+    this
+      .props
+      .actions
+      .saveCourse(this.state.course)
       .then(() => this.redirect())
       .catch(error => {
         // toastr.error(error);
@@ -67,46 +75,62 @@ export class ManageCoursePage extends React.Component {
   redirect() {
     this.setState({saving: false});
     // toastr.success('Course saved');
-    this.context.router.push('/courses');
+    this
+      .context
+      .router
+      .push('/courses');
   }
 
   render() {
-    return (
-      <CourseForm
-        allAuthors={[]}
-        onChange={this.updateCourseState}
-        onSave={this.saveCourse}
-        course={this.state.course}
-        errors={this.state.errors}
-        saving={this.state.saving}
-      />
-    );
+
+    return (<CourseForm
+      allAuthors={this.props.authors}
+      onChange={this.updateCourseState}
+      onSave={this.saveCourse}
+      course={this.state.course}
+      errors={this.state.errors}
+      saving={this.state.saving}/>);
   }
 }
 
 ManageCoursePage.propTypes = {
-  course: PropTypes.object.isRequired
+  course: PropTypes.object.isRequired,
+  authors: PropTypes.array.isRequired
 };
 
-//Pull in the React Router context so router is available on this.context.router.
+// Pull in the React Router context so router is available on
+// this.context.router.
 ManageCoursePage.contextTypes = {
   router: PropTypes.object
 };
 
 function getCourseById(courses, id) {
   const course = courses.filter(course => course.id === id);
-  if (course) return course[0]; //since filter returns an array, have to grab the first.
+  if (course) 
+    return course[0]; //since filter returns an array, have to grab the first.
   return null;
 }
 
 function mapStateToProps(state, ownProps) {
 
-  let course = {id: '', watchHref: '', title: '', authorId: '', length: '', category: ''};
-
-  return {
-    course: course,
-    authors: state.authors
+  let course = {
+    id: '',
+    watchHref: '',
+    title: '',
+    authorId: '',
+    length: '',
+    category: ''
   };
+
+  const authorsFormattedForDropdown = state
+    .authors
+    .map(author => {
+      return {
+        value: author.id,
+        text: author.firstName + ' ' + author.lastName
+      };
+    });
+  return {course: course, authors: authorsFormattedForDropdown};
 }
 
 function mapDispatchToProps(dispatch) {
