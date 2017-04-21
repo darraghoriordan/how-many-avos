@@ -1,18 +1,20 @@
 import React, {Component, PropTypes} from 'react';
+import {connect} from 'react-redux';
 import './App.css';
 import Header from './components/common/Header';
 import AppRoutes from './AppRoutes';
-import {connect} from 'react-redux';
+// we need withRouter here becuase App is not defined in the router config. So
+// the router is not telling redux that anything has changed via props.
+import {withRouter} from 'react-router-dom'
 
-class App extends Component {
+export class App extends Component {
   render() {
     return (
       <div className="App">
-        <Header loading={true}/>
+        <Header loading={this.props.loading}/>
         <div className="container-fluid">
           <AppRoutes/>
         </div>
-
       </div>
     );
   }
@@ -24,9 +26,9 @@ function mapStateToProps(state, newProps) {
   };
 }
 
-App.prototypes = {
-  children: PropTypes.object.isRequired
+App.propTypes = {
+  loading: PropTypes.bool.isRequired
 };
 
-// export default connect(mapStateToProps)(App);
-export default App;
+export default withRouter(connect(mapStateToProps)(App));
+//export default App;

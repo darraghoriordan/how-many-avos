@@ -9,6 +9,7 @@ import App from './App';
 import {Provider} from 'react-redux';
 import {loadCourses} from './actions/courseActions'
 import {loadAuthors} from './actions/authorActions'
+
 // this is where you could rehydrate from loclaStorage or api
 const store = configureStore();
 
