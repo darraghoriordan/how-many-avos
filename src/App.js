@@ -1,24 +1,17 @@
 import React, {Component, PropTypes} from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/common/Header';
+import AppRoutes from './AppRoutes';
 
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo"/>
-          <h2>Welcome to React</h2>
-
-        </div>
+        <Header loading={false}/>
         <div className="container-fluid">
-          <p className="App-intro">
-            To get started, edit
-            <code>src/App.js</code>
-            and save to reload.
-          </p>
-          {this.props.children}
+     <AppRoutes/>
         </div>
+    
       </div>
     );
   }

@@ -60,25 +60,15 @@ export class ManageCoursePage extends React.Component {
     }
 
     this.setState({saving: true});
-
     this
       .props
       .actions
       .saveCourse(this.state.course)
-      .then(() => this.redirect())
       .catch(error => {
-        // toastr.error(error);
-        this.setState({saving: false});
-      });
-  }
 
-  redirect() {
-    this.setState({saving: false});
-    // toastr.success('Course saved');
-    this
-      .context
-      .router
-      .push('/courses');
+        this.setState({saving: false});
+                throw(error);
+      });
   }
 
   render() {
@@ -95,7 +85,8 @@ export class ManageCoursePage extends React.Component {
 
 ManageCoursePage.propTypes = {
   course: PropTypes.object.isRequired,
-  authors: PropTypes.array.isRequired
+  authors: PropTypes.array.isRequired,
+  actions: PropTypes.object.isRequired
 };
 
 // Pull in the React Router context so router is available on
@@ -103,13 +94,6 @@ ManageCoursePage.propTypes = {
 ManageCoursePage.contextTypes = {
   router: PropTypes.object
 };
-
-function getCourseById(courses, id) {
-  const course = courses.filter(course => course.id === id);
-  if (course) 
-    return course[0]; //since filter returns an array, have to grab the first.
-  return null;
-}
 
 function mapStateToProps(state, ownProps) {
 

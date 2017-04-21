@@ -6,7 +6,6 @@ import 'bootstrap/dist/css/bootstrap-theme.css';
 import configureStore from './configureStore';
 import './index.css';
 import App from './App';
-import AppRoutes from './AppRoutes';
 import {Provider} from 'react-redux';
 import {loadCourses} from './actions/courseActions'
 import {loadAuthors} from './actions/authorActions'
@@ -19,9 +18,7 @@ store.dispatch(loadAuthors());
 ReactDOM.render((
 <Provider store={store}>
   <BrowserRouter>
-    <App>
-      <AppRoutes/>
-    </App>
+    <App/>
   </BrowserRouter>
 </Provider>),
   document.getElementById('root')
