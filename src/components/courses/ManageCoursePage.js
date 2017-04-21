@@ -70,7 +70,7 @@ export class ManageCoursePage extends React.Component {
       .catch(error => {
 
         this.setState({saving: false});
-                throw(error);
+        throw(error);
       });
   }
 
@@ -100,7 +100,7 @@ ManageCoursePage.contextTypes = {
 
 function mapStateToProps(state, ownProps) {
 
-const courseId = ownProps.match.params.id;
+  const courseId = ownProps.match.params.id;
 
   let course = {
     id: '',
@@ -110,7 +110,9 @@ const courseId = ownProps.match.params.id;
     length: '',
     category: ''
   };
-
+  if (courseId) {
+    course = getCourseById(state.courses, courseId);
+  }
   const authorsFormattedForDropdown = state
     .authors
     .map(author => {
@@ -121,7 +123,10 @@ const courseId = ownProps.match.params.id;
     });
   return {course: course, authors: authorsFormattedForDropdown};
 }
+function getCourseById(courses, courseId) {
+  return courses.find(course => course.id === courseId)
 
+}
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(courseActions, dispatch)
