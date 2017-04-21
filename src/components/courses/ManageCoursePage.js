@@ -110,7 +110,7 @@ function mapStateToProps(state, ownProps) {
     length: '',
     category: ''
   };
-  if (courseId) {
+  if (courseId && state.courses.length >0) {
     course = getCourseById(state.courses, courseId);
   }
   const authorsFormattedForDropdown = state
@@ -123,10 +123,11 @@ function mapStateToProps(state, ownProps) {
     });
   return {course: course, authors: authorsFormattedForDropdown};
 }
+
 function getCourseById(courses, courseId) {
   return courses.find(course => course.id === courseId)
-
 }
+
 function mapDispatchToProps(dispatch) {
   return {
     actions: bindActionCreators(courseActions, dispatch)
