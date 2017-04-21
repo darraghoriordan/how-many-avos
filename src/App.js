@@ -22,7 +22,8 @@ export class App extends Component {
 
 function mapStateToProps(state, newProps) {
   return {
-    loading: state.ajaxCallsInProgress > 0
+
+    loading: state.ajaxStatus > 0
   };
 }
 
