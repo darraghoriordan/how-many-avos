@@ -15,6 +15,8 @@ export class ManageCoursePage extends React.Component {
       saving: false
     };
 
+    this.history = props.history;
+
     this.updateCourseState = this
       .updateCourseState
       .bind(this);
@@ -64,6 +66,7 @@ export class ManageCoursePage extends React.Component {
       .props
       .actions
       .saveCourse(this.state.course)
+      .then(this.history.push('/courses'))
       .catch(error => {
 
         this.setState({saving: false});
@@ -96,6 +99,8 @@ ManageCoursePage.contextTypes = {
 };
 
 function mapStateToProps(state, ownProps) {
+
+const courseId = ownProps.match.params.id;
 
   let course = {
     id: '',
