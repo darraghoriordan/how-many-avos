@@ -11,14 +11,14 @@ class AppRoutes extends React.Component {
     return (
       <div>
         <Route exact path="/" component={HomePage}/>
-          <Route path="/about" component={AboutPage}/>
-          <Switch>
+        <Route path="/about" component={AboutPage}/>
+        <Switch>
           <Route path="/courses" component={CoursePage}/>
-           <Route path="/course/:id" component={ManageCoursePage}/>
+          <Route path="/course/:id" component={ManageCoursePage}/>
           <Route path="/course" component={ManageCoursePage}/>
-         
-          </Switch>         
-          <Route path="/howmanyavos" component={AvoCalculatorPage}/>    
+
+        </Switch>
+        <Route path="/howmanyavos" component={AvoCalculatorPage}/>
       </div>
     )
   }
