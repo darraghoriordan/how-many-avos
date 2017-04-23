@@ -5,8 +5,13 @@ import {MemoryRouter} from 'react-router';
 
 it('renders without crashing', () => {
   const div = document.createElement('div');
-  ReactDOM.render(    
-  <MemoryRouter> 
-  <CourseListRow />  
+  const course = {};
+  ReactDOM.render(
+    <MemoryRouter>
+    <table>
+      <tbody>
+        <CourseListRow course={course}/>
+      </tbody>
+    </table>
   </ MemoryRouter>, div);
 });

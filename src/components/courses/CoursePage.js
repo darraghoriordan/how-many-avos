@@ -4,7 +4,7 @@ import {bindActionCreators} from 'redux';
 import * as courseActions from '../../actions/courseActions';
 import CourseList from './CourseList';
 
-class CoursePage extends React.Component {
+export class CoursePage extends React.Component {
     constructor(props, context) {
         super(props, context);
 
