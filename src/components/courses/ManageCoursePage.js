@@ -2,7 +2,7 @@ import React, {PropTypes} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as courseActions from '../../actions/courseActions';
-
+import toastr from 'toastr';
 import CourseForm from './CourseForm'
 
 export class ManageCoursePage extends React.Component {
@@ -22,6 +22,10 @@ export class ManageCoursePage extends React.Component {
       .bind(this);
     this.saveCourse = this
       .saveCourse
+      .bind(this);
+
+    this.redirectToCourses = this
+      .redirectToCourses
       .bind(this);
   }
 
@@ -66,12 +70,20 @@ export class ManageCoursePage extends React.Component {
       .props
       .actions
       .saveCourse(this.state.course)
-      .then(this.history.push('/courses'))
+      .then(() => this.redirectToCourses())
       .catch(error => {
 
         this.setState({saving: false});
         throw(error);
       });
+  }
+
+  redirectToCourses() {
+    toastr.success('Course saved!');
+    this.setState({saving: false});
+    this
+      .history
+      .push('/courses')
   }
 
   render() {
@@ -110,7 +122,7 @@ function mapStateToProps(state, ownProps) {
     length: '',
     category: ''
   };
-  if (courseId && state.courses.length >0) {
+  if (courseId && state.courses.length > 0) {
     course = getCourseById(state.courses, courseId);
   }
   const authorsFormattedForDropdown = state

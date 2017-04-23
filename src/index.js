@@ -7,8 +7,9 @@ import configureStore from './configureStore';
 import './index.css';
 import App from './App';
 import {Provider} from 'react-redux';
-import {loadCourses} from './actions/courseActions'
-import {loadAuthors} from './actions/authorActions'
+import {loadCourses} from './actions/courseActions';
+import {loadAuthors} from './actions/authorActions';
+import '../node_modules/toastr/build/toastr.min.css';
 
 // this is where you could rehydrate from loclaStorage or api
 const store = configureStore();
