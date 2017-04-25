@@ -7,8 +7,8 @@ export function avoCalculatorResultSuccess(avoCalculatorResult) {
 
 export function calculateResult(avoCalculatorParameters) {
     return function (dispatch) {
-        avoCalculatorResult = avoCalculator.calculateResult(avoCalculatorParameters);
+       let avoCalculatorResults = avoCalculator.calculateResult(avoCalculatorParameters);
 
-        dispatch(avoCalculatorResultSuccess(avoCalculatorResult));
+        dispatch(avoCalculatorResultSuccess(avoCalculatorResults));
     }
 }

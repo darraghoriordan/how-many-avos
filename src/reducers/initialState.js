@@ -12,7 +12,7 @@ export default {
             numberOfLattesPerWeek: 14,
             housePrice: 1000000
         },
-        avoCalculatorResult: {
+        avoCalculatorResults: {
             numberOfWeeksToDeposit: 0,
             totalWeeklySavings: 0,
             lattesWeeklySavings: 0,
