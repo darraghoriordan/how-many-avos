@@ -7,33 +7,38 @@ import {bindActionCreators} from 'redux';
 export class AvoCalculatorPage extends React.Component {
     constructor(props, context) {
         super(props, context);
-        this.updateAvoCalculatorParameterState = 
-        this.updateAvoCalculatorParameterState.bind(this);
+
+        this.updateAvoCalculatorParameterState = this
+            .updateAvoCalculatorParameterState
+            .bind(this);
     }
 
     render() {
         return (
             <div>
                 <h1>How Many Avos</h1>
-                <AvoCalculatorForm 
-                avoCalculatorModel={this.props.avoCalculatorModel}
-                onParameterChange={this.updateAvoCalculatorParameterState}/>
+                <AvoCalculatorForm
+                    avoCalculatorModel={this.props.avoCalculatorModel}
+                    onParameterChange={this.updateAvoCalculatorParameterState}/>
             </div>
         )
     }
 
     updateAvoCalculatorParameterState(event) {
         const field = event.target.name;
-        let avoCalculatorParameters = Object.assign({},this.props.avoCalculatorModel.avoCalculatorParameters);
+        let avoCalculatorParameters = Object.assign({}, this.props.avoCalculatorModel.avoCalculatorParameters);
         avoCalculatorParameters[field] = event.target.value;
-        this.props.actions.calculateResult(avoCalculatorParameters);
+        this
+            .props
+            .actions
+            .calculateResult(avoCalculatorParameters);
     }
 }
 
 function mapDispatchToProps(dispatch) {
-  return {
-    actions: bindActionCreators(avoCalculatorActions, dispatch)
-  };
+    return {
+        actions: bindActionCreators(avoCalculatorActions, dispatch)
+    };
 }
 
 function mapStateToProps(state) {

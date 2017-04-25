@@ -5,7 +5,7 @@ export default function avoCalculatorReducer(state = intitialState.avoCalculator
     switch (action.type) {
         case types.AVO_CALCULATOR_RESULT_SUCCESS:
             let newState = Object.assign({},state);
-            newState.avoCalculatorResults =  Object.assign({}, action.data);
+            newState =  Object.assign({}, action.data);
             return newState;
         default:
             return state;
