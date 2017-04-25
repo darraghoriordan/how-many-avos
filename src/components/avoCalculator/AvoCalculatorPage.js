@@ -24,7 +24,7 @@ export class AvoCalculatorPage extends React.Component {
 
     updateAvoCalculatorParameterState(event) {
         const field = event.target.name;
-        let avoCalculatorParameters = Object.assign({},this.props.avoCalculatorModel).avoCalculatorParameters;
+        let avoCalculatorParameters = Object.assign({},this.props.avoCalculatorModel.avoCalculatorParameters);
         avoCalculatorParameters[field] = event.target.value;
         this.props.actions.calculateResult(avoCalculatorParameters);
     }
