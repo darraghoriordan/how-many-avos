@@ -7,14 +7,14 @@ it('renders without crashing', () => {
   const div = document.createElement('div');
 
   const props = {
-    loading:false,
+    loading: false,
     authors: [],
     actions: {
       saveCourse: () => {
         return Promise.resolve();
       }
     },
-    courses:[],
+    courses: [],
     course: {
       id: '',
       watchHref: '',
