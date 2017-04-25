@@ -1,27 +1,33 @@
 import React from 'react';
 import TextInput from '../common/TextInput';
 
-const AvoCalculatorForm = ({avoCalculator, onChange}) => {
+const AvoCalculatorForm = ({avoCalculatorModel, onParameterChange}) => {
     return (
         <form>
             <TextInput
-            name="housePrice"
-            label="House Price"
-            value={avoCalculator.housePrice.toString()}
-            onChange={onChange}/>
+                name="housePrice"
+                label="House Price"
+                value={avoCalculatorModel
+                .avoCalculatorParameters
+                .housePrice
+                .toString()} 
+                onChange={onParameterChange}/>
             <TextInput
-            name="deposit"
-            label="Deposit (20% default)"
-            value={avoCalculator.deposit.toString()}
-            onChange={onChange}/>
+                name="deposit"
+                label="Deposit (20% default)"
+                value={avoCalculatorModel
+                .avoCalculatorResult
+                .deposit
+                .toString()} 
+                onChange={onParameterChange}/>
 
         </form>
     );
 };
 
 AvoCalculatorForm.propTypes = {
-    avoCalculator: React.PropTypes.object.isRequired,
-      onChange: React.PropTypes.func.isRequired
+    avoCalculatorModel: React.PropTypes.object.isRequired,
+    onParameterChange: React.PropTypes.func.isRequired
 };
 
 export default AvoCalculatorForm;

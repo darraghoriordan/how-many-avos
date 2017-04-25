@@ -4,10 +4,11 @@ import {connect} from 'react-redux';
 import * as avoCalculatorActions from '../../actions/avoCalculatorActions';
 import {bindActionCreators} from 'redux';
 
-class AvoCalculatorPage extends React.Component {
+export class AvoCalculatorPage extends React.Component {
     constructor(props, context) {
         super(props, context);
-        this.updateAvoCalculatorState = this.updateAvoCalculatorState.bind(this);
+        this.updateAvoCalculatorParameterState = 
+        this.updateAvoCalculatorParameterState.bind(this);
     }
 
     render() {
@@ -15,17 +16,17 @@ class AvoCalculatorPage extends React.Component {
             <div>
                 <h1>How Many Avos</h1>
                 <AvoCalculatorForm 
-                avoCalculator={this.props.avoCalculator}
-                onChange={this.updateAvoCalculatorState}/>
+                avoCalculatorModel={this.props.avoCalculatorModel}
+                onParameterChange={this.updateAvoCalculatorParameterState}/>
             </div>
         )
     }
 
-    updateAvoCalculatorState(event) {
+    updateAvoCalculatorParameterState(event) {
         const field = event.target.name;
-        let avoCalculator = this.props.avoCalculator;
-        avoCalculator[field] = event.target.value;
-        this.props.actions.updateAvoCalculator(avoCalculator);
+        let avoCalculatorParameters = this.props.avoCalculatorModel.avoCalculatorParameters;
+        avoCalculatorParameters[field] = event.target.value;
+        this.props.actions.calculateResult(avoCalculatorParameters);
     }
 }
 
@@ -36,9 +37,8 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-    debugger;
-    let avoCalculator = state.avoCalculator;
-    return {avoCalculator};
+    let avoCalculatorModel = state.avoCalculatorModel;
+    return {avoCalculatorModel};
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AvoCalculatorPage);

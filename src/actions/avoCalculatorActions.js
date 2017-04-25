@@ -1,15 +1,14 @@
 import * as types from './actionTypes';
 import * as avoCalculator from '../calculators/avoCalculator';
 
-export function updateAvoCalculatorSuccess(avoCalculator) {
-    return {type: types.UPDATE_AVO_CALCULATOR_SUCCESS, data: avoCalculator};
+export function avoCalculatorResultSuccess(avoCalculatorResult) {
+    return {type: types.AVO_CALCULATOR_RESULT_SUCCESS, data: avoCalculatorResult};
 }
 
-export function updateAvoCalculator(avoCalculatorModel) {
+export function calculateResult(avoCalculatorParameters) {
     return function (dispatch) {
-debugger;
-        avoCalculatorModel.deposit = avoCalculator.calculateDeposit(avoCalculatorModel.housePrice, avoCalculatorModel.depositPercentageRequired);
+        avoCalculatorResult = avoCalculator.calculateResult(avoCalculatorParameters);
 
-        dispatch(updateAvoCalculatorSuccess(avoCalculatorModel));
+        dispatch(avoCalculatorResultSuccess(avoCalculatorResult));
     }
 }
