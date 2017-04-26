@@ -1,5 +1,6 @@
 import React from 'react';
 import AvoCalculatorForm from './AvoCalculatorForm'
+import AvoCalculatorResult from './AvoCalculatorResult'
 import {connect} from 'react-redux';
 import * as avoCalculatorActions from '../../actions/avoCalculatorActions';
 import {bindActionCreators} from 'redux';
@@ -11,6 +12,9 @@ export class AvoCalculatorPage extends React.Component {
         this.updateAvoCalculatorParameterState = this
             .updateAvoCalculatorParameterState
             .bind(this);
+        this.componentWillReceiveProps = this
+            .componentWillReceiveProps
+            .bind(this);
     }
 
     render() {
@@ -18,10 +22,25 @@ export class AvoCalculatorPage extends React.Component {
             <div>
                 <h1>How Many Avos</h1>
                 <AvoCalculatorForm
-                    avoCalculatorModel={this.props.avoCalculatorModel}
+                    avoCalculatorParameters={this.props.avoCalculatorModel.avoCalculatorParameters}
                     onParameterChange={this.updateAvoCalculatorParameterState}/>
+                <AvoCalculatorResult
+                    avoCalculatorResults={this.props.avoCalculatorModel.avoCalculatorResults}
+                    avoCalculatorParameters={this.props.avoCalculatorModel.avoCalculatorParameters}/>
             </div>
         )
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (this.props.avoCalculatorModel.avoCalculatorResults.deposit <= 0) {
+            // Necessary to populate form when existing course is loaded directly.
+            let avoCalculatorParameters = Object.assign({}, nextProps.avoCalculatorModel.avoCalculatorParameters);
+
+            this
+                .props
+                .actions
+                .calculateResult(avoCalculatorParameters);
+        }
     }
 
     updateAvoCalculatorParameterState(event) {
