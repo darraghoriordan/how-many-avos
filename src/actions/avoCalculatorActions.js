@@ -1,5 +1,5 @@
 import * as types from './actionTypes';
-import * as avoCalculator from '../calculators/avoCalculator';
+import AvoCalculator from '../calculators/avoCalculator';
 
 export function avoCalculatorResultSuccess(avoCalculatorResult) {
     return {type: types.AVO_CALCULATOR_RESULT_SUCCESS, data: avoCalculatorResult};
@@ -7,7 +7,7 @@ export function avoCalculatorResultSuccess(avoCalculatorResult) {
 
 export function calculateResult(avoCalculatorParameters) {
     return function (dispatch) {
-
+let avoCalculator = new AvoCalculator();
        let avoCalculatorResults = avoCalculator.calculateResult(avoCalculatorParameters);
      let avoCalculatorModel = {
          avoCalculatorParameters,

@@ -15,6 +15,16 @@ export class AvoCalculatorPage extends React.Component {
         this.componentWillReceiveProps = this
             .componentWillReceiveProps
             .bind(this);
+
+        Object.resolve = function (path, obj) {
+            return path
+                .split('.')
+                .reduce(function (prev, curr) {
+                    return prev
+                        ? prev[curr]
+                        : undefined
+                }, obj || self)
+        }
     }
 
     render() {
