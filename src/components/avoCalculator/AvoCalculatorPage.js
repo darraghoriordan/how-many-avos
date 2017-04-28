@@ -61,6 +61,7 @@ export class AvoCalculatorPage extends React.Component {
         } else {
             avoCalculatorParameters[fieldNames[0]] = event.target.value;
         }
+        this.setState({avoCalculatorParameters});
     }
 }
 

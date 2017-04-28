@@ -34,7 +34,8 @@ const AvoCalculatorResult = ({avoCalculatorResults}) => {
                     <tr>
                         <th>Savings</th>
                         <th>Percent of deposit</th>
-                        <th>Time saving</th>
+                        <th>Time saving (weeks)</th>
+                        <th>Time saving (years)</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -48,7 +49,10 @@ const AvoCalculatorResult = ({avoCalculatorResults}) => {
                                 .giftFromParents
                                 .timeBenefitInWeeks
                                 .toFixed(2)}</td>
-
+                        <td>{avoCalculatorResults
+                                .giftFromParents
+                                .timeBenefitInYears
+                                .toFixed(2)}</td>
                     </tr>
                     <tr>
                         <td>Personal Savings</td>
@@ -60,7 +64,10 @@ const AvoCalculatorResult = ({avoCalculatorResults}) => {
                                 .personalSavings
                                 .timeBenefitInWeeks
                                 .toFixed(2)}</td>
-
+                        <td>{avoCalculatorResults
+                                .personalSavings
+                                .timeBenefitInYears
+                                .toFixed(2)}</td>
                     </tr>
                     <tr>
                         <td>Avo Brekkies</td>
@@ -72,7 +79,10 @@ const AvoCalculatorResult = ({avoCalculatorResults}) => {
                                 .avoBreakfasts
                                 .timeBenefitInWeeks
                                 .toFixed(2)}</td>
-
+                        <td>{avoCalculatorResults
+                                .avoBreakfasts
+                                .timeBenefitInYears
+                                .toFixed(2)}</td>
                     </tr>
                     <tr>
                         <td>Lattes</td>
@@ -84,7 +94,10 @@ const AvoCalculatorResult = ({avoCalculatorResults}) => {
                                 .lattes
                                 .timeBenefitInWeeks
                                 .toFixed(2)}</td>
-
+                        <td>{avoCalculatorResults
+                                .lattes
+                                .timeBenefitInYears
+                                .toFixed(2)}</td>
                     </tr>
                 </tbody>
             </table>
