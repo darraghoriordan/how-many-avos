@@ -7,15 +7,23 @@ it('renders without crashing', () => {
     const div = document.createElement('div');
 
     const props = {
-
         avoCalculatorParameters: {
+
             percentDepositRequired: 20,
-            personalWeeklySavings: 250,
-            avoBreakfastCost: 20,
-            latteCost: 5,
-            numberOfAvoBreakfastsPerWeek: 7,
-            numberOfLattesPerWeek: 14,
-            housePrice: 1000000
+            lattes: {
+                cost: 5,
+                numberPerWeek: 7
+            },
+            avoBreakfasts: {
+                cost: 20,
+                numberPerWeek: 3
+            },
+            personalSavings: {
+                cost: 250,
+                numberPerWeek: 1
+            },
+            housePrice: 1000000,
+            giftFromParents: 0
         },
         onParameterChange: () => {}
     };

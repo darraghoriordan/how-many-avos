@@ -19,7 +19,7 @@ const AvoCalculatorForm = ({avoCalculatorParameters, onParameterChange}) => {
                 .toString()}
                 onChange={onParameterChange}/>
             <TextInput
-                name="numberOfLattesPerWeek"
+                name="lattes.numberPerWeek"
                 label="# Lattes per week"
                 value={avoCalculatorParameters
                 .lattes
@@ -27,7 +27,7 @@ const AvoCalculatorForm = ({avoCalculatorParameters, onParameterChange}) => {
                 .toString()}
                 onChange={onParameterChange}/>
             <TextInput
-                name="numberOfAvoBreakfastsPerWeek"
+                name="avoBreakfasts.numberPerWeek"
                 label="# Avo Brekkies per week"
                 value={avoCalculatorParameters
                 .avoBreakfasts
@@ -35,7 +35,7 @@ const AvoCalculatorForm = ({avoCalculatorParameters, onParameterChange}) => {
                 .toString()}
                 onChange={onParameterChange}/>
             <TextInput
-                name="personalWeeklySavings"
+                name="personalSavings.cost"
                 label="Personal savings"
                 value={avoCalculatorParameters
                 .personalSavings

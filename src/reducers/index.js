@@ -4,6 +4,6 @@ import authors from './authorReducer';
 import ajaxStatus from './ajaxStatusReducer'
 import avoCalculator from './avoCalculatorReducer';
 
-const rootReducer = combineReducers({courses, authors, ajaxStatus, avoCalculatorModel:avoCalculator});
+const rootReducer = combineReducers({courses, authors, ajaxStatus, avoCalculatorParameters:avoCalculator});
 
 export default rootReducer;

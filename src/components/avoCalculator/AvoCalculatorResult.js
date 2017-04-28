@@ -1,22 +1,23 @@
 import React from 'react';
 
-const AvoCalculatorResult = ({avoCalculatorResults, avoCalculatorParameters}) => {
+const AvoCalculatorResult = ({avoCalculatorResults}) => {
+
     return (
         <div>
             <p>
                 Damn, you need a deposit of ${avoCalculatorResults.deposit}
             </p>
             <p>
-                with your fucking huge gift of ${avoCalculatorParameters.giftFromParents}
+                with your fucking huge gift of ${avoCalculatorResults.parameters.giftFromParents}
             </p>
             <p>
                 and ${avoCalculatorResults.personalSavings.weeklySavings}&nbsp;weekly savings
             </p>
             <p>
-                and saving ${avoCalculatorResults.lattes.weeklySavings}&nbsp;on lattes ({avoCalculatorParameters.lattes.numberPerWeek}&nbsp;lattes at ${avoCalculatorParameters.lattes.cost})
+                and saving ${avoCalculatorResults.lattes.weeklySavings}&nbsp;on lattes ({avoCalculatorResults.parameters.lattes.numberPerWeek}&nbsp;lattes at ${avoCalculatorResults.parameters.lattes.cost})
             </p>
             <p>
-                and ${avoCalculatorResults.avoBreakfasts.weeklySavings}&nbsp;on avo brekkies ({avoCalculatorParameters.avoBreakfasts.numberPerWeek}&nbsp;brekkies at ${avoCalculatorParameters.avoBreakfasts.cost})
+                and ${avoCalculatorResults.avoBreakfasts.weeklySavings}&nbsp;on avo brekkies ({avoCalculatorResults.parameters.avoBreakfasts.numberPerWeek}&nbsp;brekkies at ${avoCalculatorResults.parameters.avoBreakfasts.cost})
             </p>
             <p>
                 Your total weekly savings will be ${avoCalculatorResults.totalWeeklySavings}
@@ -40,40 +41,48 @@ const AvoCalculatorResult = ({avoCalculatorResults, avoCalculatorParameters}) =>
                     <tr>
                         <td>Huge gift</td>
                         <td>{avoCalculatorResults
-                                .giftFromParents.percentTotalDeposit
+                                .giftFromParents
+                                .percentTotalDeposit
                                 .toFixed(2)}%</td>
                         <td>{avoCalculatorResults
-                                .giftFromParents.timeBenefitInWeeks
+                                .giftFromParents
+                                .timeBenefitInWeeks
                                 .toFixed(2)}</td>
 
                     </tr>
                     <tr>
                         <td>Personal Savings</td>
                         <td>{avoCalculatorResults
-                                .personalSavings.percentTotalDeposit
+                                .personalSavings
+                                .percentTotalDeposit
                                 .toFixed(2)}%</td>
                         <td>{avoCalculatorResults
-                                .personalSavings.timeBenefitInWeeks
+                                .personalSavings
+                                .timeBenefitInWeeks
                                 .toFixed(2)}</td>
 
                     </tr>
                     <tr>
                         <td>Avo Brekkies</td>
                         <td>{avoCalculatorResults
-                                .avoBreakfasts.percentTotalDeposit
+                                .avoBreakfasts
+                                .percentTotalDeposit
                                 .toFixed(2)}%</td>
                         <td>{avoCalculatorResults
-                                .avoBreakfasts.timeBenefitInWeeks
+                                .avoBreakfasts
+                                .timeBenefitInWeeks
                                 .toFixed(2)}</td>
 
                     </tr>
                     <tr>
                         <td>Lattes</td>
                         <td>{avoCalculatorResults
-                                .lattes.percentTotalDeposit
+                                .lattes
+                                .percentTotalDeposit
                                 .toFixed(2)}%</td>
                         <td>{avoCalculatorResults
-                                .lattes.timeBenefitInWeeks
+                                .lattes
+                                .timeBenefitInWeeks
                                 .toFixed(2)}</td>
 
                     </tr>
@@ -84,8 +93,7 @@ const AvoCalculatorResult = ({avoCalculatorResults, avoCalculatorParameters}) =>
 };
 
 AvoCalculatorResult.propTypes = {
-    avoCalculatorResults: React.PropTypes.object.isRequired,
-    avoCalculatorParameters: React.PropTypes.object.isRequired
+    avoCalculatorResults: React.PropTypes.object.isRequired
 };
 
 export default AvoCalculatorResult;

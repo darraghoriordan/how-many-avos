@@ -10,39 +10,31 @@ it('calculates weekly savings correctly', () => {
 
     let expected = 30;
 
-    let result = avoCalculator.calculateWeeklySavings(parms);
+    let result = avoCalculator.calculateWeeklySavings(params);
 
     expect(result).toEqual(expected);
 });
 
-it('calculates one off result correctly', () => {
+it('calculates weekly result correctly', () => {
     const params = {
-        numberOfWeeksToDeposit:52, 
-        oneOffSavings:100, 
-        deposit:200
+        numberOfWeeksToDeposit: 52,
+        weeklySavings: 250,
+        deposit: 200000
     }
 
     let avoCalculator = new AvoCalculator();
 
-    let result = avoCalculator.calculateWeeklySavings(parms);
-
-    expect(result.percentTotalDeposit).toEqual(50);
-     expect(result.timeBenefitInWeeks).toEqual(26);
-      expect(result.timeBenefitInYears).toEqual(0.5);
+    let result = avoCalculator.calculateResultForWeeklyItem(params.numberOfWeeksToDeposit,params.weeklySavings,params.deposit);
+    expect(result.weeklySavings).toEqual(250)
+    expect(result.percentTotalDeposit).toEqual(6.5);
+    expect(result.timeBenefitInWeeks).toEqual(3.38);
+    expect(result.timeBenefitInYears).toEqual(.065);
 });
-// it('calculates correctly', () => {
-//     const avoCalculatorParameters = {
-//         percentDepositRequired: 20,
-//         personalWeeklySavings: 250,
-//         avoBreakfastCost: 20,
-//         latteCost: 5,
-//         numberOfAvoBreakfastsPerWeek: 7,
-//         numberOfLattesPerWeek: 14,
-//         housePrice: 1000000
-//     }
-//     const expectedResultWeeks = 435;
-
-//     let result = avoCalculator.calculateResult(avoCalculatorParameters);
-
-//     expect(Math.round(result.numberOfWeeksToDeposit)).toEqual(expectedResultWeeks);
-// });
+// it('calculates correctly', () => {     const avoCalculatorParameters = {
+//    percentDepositRequired: 20,         personalWeeklySavings: 250,
+// avoBreakfastCost: 20,         latteCost: 5,
+// numberOfAvoBreakfastsPerWeek: 7,         numberOfLattesPerWeek: 14,
+// housePrice: 1000000     }     const expectedResultWeeks = 435;     let result
+// = avoCalculator.calculateResult(avoCalculatorParameters);
+// expect(Math.round(result.numberOfWeeksToDeposit)).toEqual(expectedResultWeeks)
+// ; });

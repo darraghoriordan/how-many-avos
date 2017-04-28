@@ -4,27 +4,21 @@ import AvoCalculatorResult from './AvoCalculatorResult'
 import {connect} from 'react-redux';
 import * as avoCalculatorActions from '../../actions/avoCalculatorActions';
 import {bindActionCreators} from 'redux';
+import AvoCalculator from '../../calculators/avoCalculator';
 
 export class AvoCalculatorPage extends React.Component {
     constructor(props, context) {
         super(props, context);
+        this.state = {
+            avoCalculatorParameters: Object.assign({}, props.avoCalculatorParameters)
+        }
 
         this.updateAvoCalculatorParameterState = this
             .updateAvoCalculatorParameterState
             .bind(this);
-        this.componentWillReceiveProps = this
-            .componentWillReceiveProps
-            .bind(this);
-
-        Object.resolve = function (path, obj) {
-            return path
-                .split('.')
-                .reduce(function (prev, curr) {
-                    return prev
-                        ? prev[curr]
-                        : undefined
-                }, obj || self)
-        }
+        // this.componentWillReceiveProps = this
+        //     .componentWillReceiveProps
+        //     .bind(this);
     }
 
     render() {
@@ -32,35 +26,41 @@ export class AvoCalculatorPage extends React.Component {
             <div>
                 <h1>How Many Avos</h1>
                 <AvoCalculatorForm
-                    avoCalculatorParameters={this.props.avoCalculatorModel.avoCalculatorParameters}
+                    avoCalculatorParameters={this.state.avoCalculatorParameters}
                     onParameterChange={this.updateAvoCalculatorParameterState}/>
                 <AvoCalculatorResult
-                    avoCalculatorResults={this.props.avoCalculatorModel.avoCalculatorResults}
-                    avoCalculatorParameters={this.props.avoCalculatorModel.avoCalculatorParameters}/>
+                    avoCalculatorResults={this.calculateResults(this.state.avoCalculatorParameters)}/>
             </div>
         )
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (this.props.avoCalculatorModel.avoCalculatorResults.deposit <= 0) {
-            // Necessary to populate form when existing course is loaded directly.
-            let avoCalculatorParameters = Object.assign({}, nextProps.avoCalculatorModel.avoCalculatorParameters);
-
-            this
-                .props
-                .actions
-                .calculateResult(avoCalculatorParameters);
-        }
+    calculateResults(avoCalculatorParameters){
+            let ac = new AvoCalculator();
+            return ac.calculateResult(avoCalculatorParameters);
     }
+
+    // componentWillReceiveProps(nextProps) {
+    //     if (this.props.avoCalculatorModel.avoCalculatorResults.deposit <= 0) {
+    //         // Necessary to populate form when existing course is loaded directly.
+    //         let avoCalculatorParameters = Object.assign({}, nextProps.avoCalculatorModel.avoCalculatorParameters);
+
+    //         this
+    //             .props
+    //             .actions
+    //             .calculateResult(avoCalculatorParameters);
+    //     }
+    // }
 
     updateAvoCalculatorParameterState(event) {
         const field = event.target.name;
-        let avoCalculatorParameters = Object.assign({}, this.props.avoCalculatorModel.avoCalculatorParameters);
-        avoCalculatorParameters[field] = event.target.value;
-        this
-            .props
-            .actions
-            .calculateResult(avoCalculatorParameters);
+        let avoCalculatorParameters = Object.assign({}, this.props.avoCalculatorParameters);
+
+        let fieldNames = field.split(".");
+        if (fieldNames.length === 2) {
+            avoCalculatorParameters[fieldNames[0]][fieldNames[1]] = event.target.value;
+        } else {
+            avoCalculatorParameters[fieldNames[0]] = event.target.value;
+        }
     }
 }
 
@@ -71,8 +71,8 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-    let avoCalculatorModel = state.avoCalculatorModel;
-    return {avoCalculatorModel};
+    return {avoCalculatorParameters: state.avoCalculatorParameters};
+
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(AvoCalculatorPage);
