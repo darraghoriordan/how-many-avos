@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
-import './App.css';
 import Header from './components/common/Header';
 import AppRoutes from './AppRoutes';
 // we need withRouter here becuase App is not defined in the router config. So
@@ -12,7 +11,7 @@ export class App extends Component {
     return (
       <div className="App">
         <Header loading={this.props.loading}/>
-        <div className="container-fluid">
+        <div className="container">
           <AppRoutes/>
         </div>
       </div>
