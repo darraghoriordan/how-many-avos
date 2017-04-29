@@ -1,9 +1,10 @@
 import React from 'react';
 import TextInput from '../common/TextInput';
+import {Form} from 'react-bootstrap';
 
 const AvoCalculatorForm = ({avoCalculatorParameters, onParameterChange}) => {
     return (
-        <form>
+        <Form horizontal>
             <TextInput
                 name="housePrice"
                 label="House Price $"
@@ -13,14 +14,21 @@ const AvoCalculatorForm = ({avoCalculatorParameters, onParameterChange}) => {
                 onChange={onParameterChange}/>
             <TextInput
                 name="percentDepositRequired"
-                label="% Deposit"
+                label="% Deposit Required"
                 value={avoCalculatorParameters
                 .percentDepositRequired
                 .toString()}
                 onChange={onParameterChange}/>
+                         <TextInput
+                name="giftFromParents"
+                label=" #$*^%ing Huge Gift From Parents"
+                value={avoCalculatorParameters
+                .giftFromParents
+                .toString()}
+                onChange={onParameterChange}/>
             <TextInput
                 name="lattes.numberPerWeek"
-                label="# Lattes per week"
+                label="# Lattes you drink per week"
                 value={avoCalculatorParameters
                 .lattes
                 .numberPerWeek
@@ -28,7 +36,7 @@ const AvoCalculatorForm = ({avoCalculatorParameters, onParameterChange}) => {
                 onChange={onParameterChange}/>
             <TextInput
                 name="avoBreakfasts.numberPerWeek"
-                label="# Avo Brekkies per week"
+                label="# Avo brekkies you smash per week"
                 value={avoCalculatorParameters
                 .avoBreakfasts
                 .numberPerWeek
@@ -36,20 +44,14 @@ const AvoCalculatorForm = ({avoCalculatorParameters, onParameterChange}) => {
                 onChange={onParameterChange}/>
             <TextInput
                 name="personalSavings.cost"
-                label="Personal savings"
+                label="Personal savings per week (be honest!)"
                 value={avoCalculatorParameters
                 .personalSavings
                 .cost
                 .toString()}
                 onChange={onParameterChange}/>
-            <TextInput
-                name="giftFromParents"
-                label="Huge Gift From Parents"
-                value={avoCalculatorParameters
-                .giftFromParents
-                .toString()}
-                onChange={onParameterChange}/>
-        </form>
+   
+        </Form>
     );
 };
 
