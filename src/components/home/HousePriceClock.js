@@ -28,15 +28,15 @@ class HousePriceClock extends React.Component {
     tick() {
 
         let now = (new Date());
-        let dailyIncrease = 69;
-        let latteCost = 5;
+        let dailyIncrease = this.props.dailyHousePriceIncrease;
+        let latteCost = this.props.latteCost;
         let secondIncrease = (((dailyIncrease / 24) / 60) / 60);
         let housePriceIncrease = ((now.getHours() * 60 * 60) + (now.getMinutes() * 60) + now.getSeconds()) * secondIncrease;
-        let numberOfLattesIncrease = 0;
+        let numberOfItemIncrease = 0;
         if (housePriceIncrease >= 0) {
-            numberOfLattesIncrease = housePriceIncrease / latteCost
+            numberOfItemIncrease = housePriceIncrease / latteCost
         };
-        this.setState({housePrice: housePriceIncrease, numberOfLattes: numberOfLattesIncrease});
+        this.setState({housePrice: housePriceIncrease, numberOfItems: numberOfItemIncrease});
     }
 
     render() {
@@ -44,9 +44,8 @@ class HousePriceClock extends React.Component {
             <p>
                 The median house price in New Zealand has increased by {this
                     .state
-                    .numberOfLattes
-                    .toFixed(4)}
-                lattes (${this
+                    .numberOfItems
+                    .toFixed(4)} {this.props.itemNamePlural} (${this
                     .state
                     .housePrice
                     .toFixed(4)}) just TODAY! Awesome!

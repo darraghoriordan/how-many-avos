@@ -11,12 +11,10 @@ class HomePage extends React.Component {
                 <p>This site will help you on your journey to the ultimate Kiwi dream of home ownership.
                     It's going to take some effort from you so get ready to have your last latte!
                 </p>
-                <HousePriceClock/>
+                <HousePriceClock dailyHousePriceIncrease={69} latteCost={5} itemNamePlural="lattes" />
             </Jumbotron>
         );
     }
-
-    calculate
 }
 
 export default HomePage;
