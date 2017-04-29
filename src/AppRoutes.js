@@ -16,9 +16,8 @@ class AppRoutes extends React.Component {
           <Route path="/courses" component={CoursePage}/>
           <Route path="/course/:id" component={ManageCoursePage}/>
           <Route path="/course" component={ManageCoursePage}/>
-
         </Switch>
-        <Route path="/howmanyavos" component={AvoCalculatorPage}/>
+        <Route path="/deposit-calculator" component={AvoCalculatorPage}/>
       </div>
     )
   }

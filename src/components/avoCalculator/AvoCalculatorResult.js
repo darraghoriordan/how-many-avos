@@ -1,4 +1,5 @@
 import React from 'react';
+import {Table} from 'react-bootstrap';
 
 const AvoCalculatorResult = ({avoCalculatorResults}) => {
 
@@ -29,7 +30,7 @@ const AvoCalculatorResult = ({avoCalculatorResults}) => {
                     .yearsToDeposit
                     .toFixed(2)}&nbsp;years)
             </p>
-            <table className="table">
+            <Table striped bordered condensed hover>
                 <thead>
                     <tr>
                         <th>Savings</th>
@@ -100,7 +101,7 @@ const AvoCalculatorResult = ({avoCalculatorResults}) => {
                                 .toFixed(2)}</td>
                     </tr>
                 </tbody>
-            </table>
+            </Table>
         </div>
     );
 };

@@ -18,11 +18,26 @@ const Header = ({loading}) => {
           <IndexLinkContainer to="/" className="nav-item">
             <NavItem eventKey={1}>Home</NavItem>
           </IndexLinkContainer>
+          <LinkContainer
+            to="/buying-statistics"
+            activeClassName="active"
+            className="nav-item">
+            <NavItem eventKey={3}>Buying Statistics</NavItem>
+          </LinkContainer>
+          <LinkContainer
+            to="/renting-statistics"
+            activeClassName="active"
+            className="nav-item">
+            <NavItem eventKey={3}>Buying Statistics</NavItem>
+          </LinkContainer>
+          <LinkContainer
+            to="/deposit-calculator"
+            activeClassName="active"
+            className="nav-item">
+            <NavItem eventKey={3}>Deposit Calculator</NavItem>
+          </LinkContainer>
           <LinkContainer to="/about" activeClassName="active" className="nav-item">
             <NavItem eventKey={2}>About</NavItem>
-          </LinkContainer>
-          <LinkContainer to="/howmanyavos" activeClassName="active" className="nav-item">
-            <NavItem eventKey={3}>Avo Calc</NavItem>
           </LinkContainer>
         </Nav>
         <Navbar.Text>
