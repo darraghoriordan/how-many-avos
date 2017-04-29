@@ -5,6 +5,7 @@ import {connect} from 'react-redux';
 import * as avoCalculatorActions from '../../actions/avoCalculatorActions';
 import {bindActionCreators} from 'redux';
 import AvoCalculator from '../../calculators/avoCalculator';
+import {Row, Col} from 'react-bootstrap';
 
 export class AvoCalculatorPage extends React.Component {
     constructor(props, context) {
@@ -16,40 +17,39 @@ export class AvoCalculatorPage extends React.Component {
         this.updateAvoCalculatorParameterState = this
             .updateAvoCalculatorParameterState
             .bind(this);
-        // this.componentWillReceiveProps = this
-        //     .componentWillReceiveProps
-        //     .bind(this);
     }
 
     render() {
         return (
             <div>
                 <h1>How Many Avos</h1>
-                <AvoCalculatorForm
-                    avoCalculatorParameters={this.state.avoCalculatorParameters}
-                    onParameterChange={this.updateAvoCalculatorParameterState}/>
-                <AvoCalculatorResult
-                    avoCalculatorResults={this.calculateResults(this.state.avoCalculatorParameters)}/>
+                <Row>
+                    <Col md={6}>
+                        <AvoCalculatorForm
+                            avoCalculatorParameters={this.state.avoCalculatorParameters}
+                            onParameterChange={this.updateAvoCalculatorParameterState}/>
+                    </Col>
+                    <Col md={6}>
+                        <AvoCalculatorResult
+                            avoCalculatorResults={this.calculateResults(this.state.avoCalculatorParameters)}/>
+                    </Col>
+                </Row>
             </div>
         )
     }
 
-    calculateResults(avoCalculatorParameters){
-            let ac = new AvoCalculator();
-            return ac.calculateResult(avoCalculatorParameters);
+    calculateResults(avoCalculatorParameters) {
+        let ac = new AvoCalculator();
+        return ac.calculateResult(avoCalculatorParameters);
     }
 
-    // componentWillReceiveProps(nextProps) {
-    //     if (this.props.avoCalculatorModel.avoCalculatorResults.deposit <= 0) {
-    //         // Necessary to populate form when existing course is loaded directly.
-    //         let avoCalculatorParameters = Object.assign({}, nextProps.avoCalculatorModel.avoCalculatorParameters);
-
-    //         this
-    //             .props
-    //             .actions
-    //             .calculateResult(avoCalculatorParameters);
-    //     }
-    // }
+    // componentWillReceiveProps(nextProps) {     if
+    // (this.props.avoCalculatorModel.avoCalculatorResults.deposit <= 0) {
+    // // Necessary to populate form when existing course is loaded directly.
+    //  let avoCalculatorParameters = Object.assign({},
+    // nextProps.avoCalculatorModel.avoCalculatorParameters);         this
+    //   .props             .actions
+    // .calculateResult(avoCalculatorParameters);     } }
 
     updateAvoCalculatorParameterState(event) {
         const field = event.target.name;
