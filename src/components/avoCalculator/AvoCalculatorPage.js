@@ -13,7 +13,6 @@ export class AvoCalculatorPage extends React.Component {
         this.state = {
             avoCalculatorParameters: Object.assign({}, props.avoCalculatorParameters)
         }
-
         this.updateAvoCalculatorParameterState = this
             .updateAvoCalculatorParameterState
             .bind(this);
@@ -43,7 +42,7 @@ export class AvoCalculatorPage extends React.Component {
         return ac.calculateResult(avoCalculatorParameters);
     }
 
-    // componentWillReceiveProps(nextProps) {     if
+    /// componentWillReceiveProps(nextProps) {     if
     // (this.props.avoCalculatorModel.avoCalculatorResults.deposit <= 0) {
     // // Necessary to populate form when existing course is loaded directly.
     //  let avoCalculatorParameters = Object.assign({},

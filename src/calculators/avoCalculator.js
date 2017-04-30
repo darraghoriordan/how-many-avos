@@ -31,13 +31,24 @@ export default class AvoCalculator {
 
         return result;
     }
+    calculateMonthlyMortgagePayment(avoCalculatorParameters, deposit) {
+        // must be normalised to days to match bnz calculator.
+        // then multiplied by the repayment scedule
 
+        let n = avoCalculatorParameters.yearsOfMortgage * 365;
+        let r = avoCalculatorParameters.yearlyMortgageRate / 365;
+        let P = avoCalculatorParameters.housePrice - deposit;
+
+        let dailyPayment = P * (r + r / (Math.pow(1+r,n) -1));
+        return dailyPayment * 30.5;
+    }
     calculateResult(avoCalculatorParameters) {
         let avoCalculatorResult = {
             yearsToDeposit: 0,
             numberOfWeeksToDeposit: 0,
             totalWeeklySavings: 0,
             deposit: 0,
+            monthlyMortgagePayment: 0,
             lattes: {
                 weeklySavings: 0,
                 percentTotalDeposit: 0,
@@ -84,6 +95,7 @@ export default class AvoCalculator {
         avoCalculatorResult.personalSavings = this.calculateResultForWeeklyItem(avoCalculatorResult.numberOfWeeksToDeposit, avoCalculatorResult.personalSavings.weeklySavings, avoCalculatorResult.deposit);
         avoCalculatorResult.avoBreakfasts = this.calculateResultForWeeklyItem(avoCalculatorResult.numberOfWeeksToDeposit, avoCalculatorResult.avoBreakfasts.weeklySavings, avoCalculatorResult.deposit);
 
+        avoCalculatorResult.monthlyMortgagePayment = this.calculateMonthlyMortgagePayment( avoCalculatorResult.parameters, avoCalculatorResult.deposit);
         return avoCalculatorResult;
     }
 }

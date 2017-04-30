@@ -17,6 +17,8 @@ export default {
             numberPerWeek: 1
         },
         housePrice: 1000000,
-        giftFromParents: 0
+        giftFromParents: 0,
+        yearlyMortgageRate:0.07,
+        yearsOfMortgage:30
     }
 };

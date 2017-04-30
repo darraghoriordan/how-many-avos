@@ -9,10 +9,7 @@ export function calculateResult(avoCalculatorParameters) {
     return function (dispatch) {
 let avoCalculator = new AvoCalculator();
        let avoCalculatorResults = avoCalculator.calculateResult(avoCalculatorParameters);
-     let avoCalculatorModel = {
-         avoCalculatorParameters,
-         avoCalculatorResults
-     }
-        dispatch(avoCalculatorResultSuccess(avoCalculatorModel));
+     
+        dispatch(avoCalculatorResultSuccess(avoCalculatorResults));
     }
 }
