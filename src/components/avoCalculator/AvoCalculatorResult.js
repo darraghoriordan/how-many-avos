@@ -30,7 +30,12 @@ const AvoCalculatorResult = ({avoCalculatorResults}) => {
                     .yearsToDeposit
                     .toFixed(2)}&nbsp;years)
             </p>
+            <p>
            Your mortgage payments will be ${avoCalculatorResults.monthlyMortgagePayment.toFixed(2)} per month
+            </p>
+            <p>
+                  This house will really cost you ${(avoCalculatorResults.monthlyMortgagePayment * 12 * 30).toFixed(2)}
+                </p>
             <Table striped bordered condensed hover>
                 <thead>
                     <tr>
