@@ -8,6 +8,7 @@ export default class AvoCalculator {
 
     calculateResultForOneOffItem(numberOfWeeksToDeposit, oneOffSavings, deposit) {
         let result = {
+            amount:0,
             percentTotalDeposit: 0,
             timeBenefitInWeeks: 0,
             timeBenefitInYears: 0
@@ -15,6 +16,7 @@ export default class AvoCalculator {
         if (oneOffSavings <= 0) {
             return result;
         }
+        result.amount = oneOffSavings;
         result.percentTotalDeposit = (oneOffSavings / deposit) * 100;
         result.timeBenefitInWeeks = numberOfWeeksToDeposit * (result.percentTotalDeposit / 100);
         result.timeBenefitInYears = result.timeBenefitInWeeks / 52;
@@ -44,6 +46,7 @@ export default class AvoCalculator {
     }
     calculateResult(avoCalculatorParameters) {
         let avoCalculatorResult = {
+            housePrice: 0,
             yearsToDeposit: 0,
             numberOfWeeksToDeposit: 0,
             totalWeeklySavings: 0,
@@ -68,16 +71,15 @@ export default class AvoCalculator {
                 timeBenefitInYears: 0
             },
             giftFromParents: {
+                amount:0,
                 percentTotalDeposit: 0,
                 timeBenefitInWeeks: 0,
                 timeBenefitInYears: 0
-            },
-            parameters: {}
+            }
         }
 
-        avoCalculatorResult.parameters = Object.assign({}, avoCalculatorParameters);
-
-        avoCalculatorResult.deposit = avoCalculatorParameters.housePrice * (avoCalculatorParameters.percentDepositRequired / 100);
+        avoCalculatorResult.housePrice = avoCalculatorParameters.housePrice;
+        avoCalculatorResult.deposit = (avoCalculatorParameters.housePrice)  * (avoCalculatorParameters.percentDepositRequired / 100);
         avoCalculatorResult.personalSavings.weeklySavings = this.calculateWeeklySavings(avoCalculatorParameters.personalSavings);
         avoCalculatorResult.avoBreakfasts.weeklySavings = this.calculateWeeklySavings(avoCalculatorParameters.avoBreakfasts);
         avoCalculatorResult.lattes.weeklySavings = this.calculateWeeklySavings(avoCalculatorParameters.lattes);
@@ -95,7 +97,7 @@ export default class AvoCalculator {
         avoCalculatorResult.personalSavings = this.calculateResultForWeeklyItem(avoCalculatorResult.numberOfWeeksToDeposit, avoCalculatorResult.personalSavings.weeklySavings, avoCalculatorResult.deposit);
         avoCalculatorResult.avoBreakfasts = this.calculateResultForWeeklyItem(avoCalculatorResult.numberOfWeeksToDeposit, avoCalculatorResult.avoBreakfasts.weeklySavings, avoCalculatorResult.deposit);
 
-        avoCalculatorResult.monthlyMortgagePayment = this.calculateMonthlyMortgagePayment( avoCalculatorResult.parameters, avoCalculatorResult.deposit);
+        avoCalculatorResult.monthlyMortgagePayment = this.calculateMonthlyMortgagePayment(avoCalculatorParameters, avoCalculatorResult.deposit);
         return avoCalculatorResult;
     }
 }

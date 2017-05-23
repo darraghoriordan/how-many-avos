@@ -10,13 +10,15 @@ import App from './App';
 import {Provider} from 'react-redux';
 import {loadCourses} from './actions/courseActions';
 import {loadAuthors} from './actions/authorActions';
+import {calculateResult} from './actions/avoCalculatorActions';
 import '../node_modules/toastr/build/toastr.min.css';
-
+import initialState from './reducers/initialState';
 // this is where you could rehydrate from loclaStorage or api
 const store = configureStore();
 
 store.dispatch(loadCourses());
 store.dispatch(loadAuthors());
+store.dispatch(calculateResult(initialState.avoCalculatorParameters));
 
 ReactDOM.render((
 <Provider store={store}>

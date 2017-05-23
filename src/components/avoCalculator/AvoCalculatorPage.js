@@ -11,7 +11,9 @@ export class AvoCalculatorPage extends React.Component {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            avoCalculatorParameters: Object.assign({}, props.avoCalculatorParameters)
+            avoCalculatorParameters: Object.assign({}, props.avoCalculatorParameters),
+            avoCalculatorResults: Object.assign({}, props.avoCalculatorResults)
+
         }
         this.updateAvoCalculatorParameterState = this
             .updateAvoCalculatorParameterState
@@ -29,8 +31,7 @@ export class AvoCalculatorPage extends React.Component {
                             onParameterChange={this.updateAvoCalculatorParameterState}/>
                     </Col>
                     <Col md={6}>
-                        <AvoCalculatorResult
-                            avoCalculatorResults={this.calculateResults(this.state.avoCalculatorParameters)}/>
+                        <AvoCalculatorResult avoCalculatorResults={this.state.avoCalculatorResults}/>
                     </Col>
                 </Row>
             </div>
@@ -41,26 +42,28 @@ export class AvoCalculatorPage extends React.Component {
         let ac = new AvoCalculator();
         return ac.calculateResult(avoCalculatorParameters);
     }
-
-    /// componentWillReceiveProps(nextProps) {     if
-    // (this.props.avoCalculatorModel.avoCalculatorResults.deposit <= 0) {
-    // // Necessary to populate form when existing course is loaded directly.
-    //  let avoCalculatorParameters = Object.assign({},
-    // nextProps.avoCalculatorModel.avoCalculatorParameters);         this
-    //   .props             .actions
-    // .calculateResult(avoCalculatorParameters);     } }
-
+    componentWillReceiveProps(nextProps) {
+        this.setState({avoCalculatorParameters: nextProps.avoCalculatorParameters});
+        this.setState({avoCalculatorResults: nextProps.avoCalculatorResults});
+    }
     updateAvoCalculatorParameterState(event) {
         const field = event.target.name;
-        let avoCalculatorParameters = Object.assign({}, this.props.avoCalculatorParameters);
-
+        //not a deep copy so manually do the sub props
+        let avoCalculatorParameters = Object.assign({}, this.state.avoCalculatorParameters);
+        avoCalculatorParameters.lattes = Object.assign({}, this.state.avoCalculatorParameters.lattes);
+        avoCalculatorParameters.avoBreakfasts = Object.assign({}, this.state.avoCalculatorParameters.avoBreakfasts);
+             avoCalculatorParameters.personalSavings = Object.assign({}, this.state.avoCalculatorParameters.personalSavings);
         let fieldNames = field.split(".");
         if (fieldNames.length === 2) {
             avoCalculatorParameters[fieldNames[0]][fieldNames[1]] = event.target.value;
         } else {
             avoCalculatorParameters[fieldNames[0]] = event.target.value;
         }
-        this.setState({avoCalculatorParameters});
+        // this.setState({avoCalculatorParameters});
+        this
+            .props
+            .actions
+            .updateParameters(avoCalculatorParameters)
     }
 }
 
@@ -71,7 +74,7 @@ function mapDispatchToProps(dispatch) {
 }
 
 function mapStateToProps(state) {
-    return {avoCalculatorParameters: state.avoCalculatorParameters};
+    return {avoCalculatorParameters: state.avoCalculatorParameters, avoCalculatorResults: state.avoCalculatorResults};
 
 }
 

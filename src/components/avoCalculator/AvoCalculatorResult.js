@@ -9,16 +9,16 @@ const AvoCalculatorResult = ({avoCalculatorResults}) => {
                 Damn, you need a deposit of {avoCalculatorResults.deposit.toLocaleString("en-NZ", {style: "currency", currency: "NZD", minimumFractionDigits: 2})}
             </p>
             <p>
-                with your fucking huge gift of {avoCalculatorResults.parameters.giftFromParents.toLocaleString("en-NZ", {style: "currency", currency: "NZD", minimumFractionDigits: 2})}
+                with your fucking huge gift of {avoCalculatorResults.giftFromParents.amount.toLocaleString("en-NZ", {style: "currency", currency: "NZD", minimumFractionDigits: 2})}
             </p>
             <p>
                 and {avoCalculatorResults.personalSavings.weeklySavings.toLocaleString("en-NZ", {style: "currency", currency: "NZD", minimumFractionDigits: 2})}&nbsp;weekly savings
             </p>
             <p>
-                and saving {avoCalculatorResults.lattes.weeklySavings.toLocaleString("en-NZ", {style: "currency", currency: "NZD", minimumFractionDigits: 2})}&nbsp;on lattes ({avoCalculatorResults.parameters.lattes.numberPerWeek}&nbsp;lattes at {avoCalculatorResults.parameters.lattes.cost.toLocaleString("en-NZ", {style: "currency", currency: "NZD", minimumFractionDigits: 2})})
+                and saving {avoCalculatorResults.lattes.weeklySavings.toLocaleString("en-NZ", {style: "currency", currency: "NZD", minimumFractionDigits: 2})}&nbsp;on lattes 
             </p>
             <p>
-                and {avoCalculatorResults.avoBreakfasts.weeklySavings.toLocaleString("en-NZ", {style: "currency", currency: "NZD", minimumFractionDigits: 2})}&nbsp;on avo brekkies ({avoCalculatorResults.parameters.avoBreakfasts.numberPerWeek}&nbsp;brekkies at {avoCalculatorResults.parameters.avoBreakfasts.cost.toLocaleString("en-NZ", {style: "currency", currency: "NZD", minimumFractionDigits: 2})})
+                and {avoCalculatorResults.avoBreakfasts.weeklySavings.toLocaleString("en-NZ", {style: "currency", currency: "NZD", minimumFractionDigits: 2})}&nbsp;on avo brekkies 
             </p>
             <p>
                 Your total weekly savings will be {avoCalculatorResults.totalWeeklySavings.toLocaleString("en-NZ", {style: "currency", currency: "NZD", minimumFractionDigits: 2})}
