@@ -159,29 +159,40 @@ hr.light {
     border-color: #ccc;
 }
 
-.menu-area__title {
+.menu-item{
+  margin-bottom:1em;
+}
+.menu-item__title {
     text-transform: uppercase;
     font-size: 1.3em;
     font-family: 'Courier New', 'Courier', 'monospace';
     color: #66b59d;
 }
 
-.menu-area__description {
+.menu-item__description {
     font-family: 'Courier New', 'Courier', 'monospace';
     color: #9b9b9b;
 }
 
-.menu-area__today-price {
+.menu-item__today-price {
     font-size: 2em;
     color: #26a383;
 }
 
-.menu-area__today-price-description {
+.menu-item__today-price-description {
     font-size: 1.3em;
     font-family: 'Courier New', 'Courier', 'monospace';
     font-weight:bold;
     padding-left:1em;
     color: #26a383;
+}
+.menu-area__item-seperator {
+    margin:0; 
+    margin-bottom:1em;
+    max-width:3em;
+}
+.header-seperator__hr {
+    margin-bottom:2em;
 }
 
 

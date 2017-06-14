@@ -13,6 +13,7 @@ class ItemPriceClock extends React.Component {
         this.componentWillMount = this
             .componentWillMount
             .bind(this);
+
     }
 
     componentWillMount() {
@@ -25,27 +26,39 @@ class ItemPriceClock extends React.Component {
     }
 
     tick() {
-
+        // itemCost dailyHousePriceIncrease
         let now = (new Date());
-        let dailyIncrease = this.props.dailyHousePriceIncrease;
+        let housePriceIncreasePerDay = this.props.dailyHousePriceIncrease;
         let itemCost = this.props.itemCost;
-        let secondIncrease = (((dailyIncrease / 24) / 60) / 60);
-        let housePriceIncrease = ((now.getHours() * 60 * 60) + (now.getMinutes() * 60) + now.getSeconds()) * secondIncrease;
-        let numberOfItemIncrease = 0;
-        if (housePriceIncrease >= 0) {
-            numberOfItemIncrease = housePriceIncrease / itemCost
+
+        let housePriceIncreasePerSecond = (((housePriceIncreasePerDay / 24) / 60) / 60);
+        let housePriceIncreaseToNow = ((now.getHours() * 60 * 60) + (now.getMinutes() * 60) + now.getSeconds()) * housePriceIncreasePerSecond;
+
+        let numberOfItemIncreaseToNow = 0;
+        if (housePriceIncreaseToNow >= 0) {
+            numberOfItemIncreaseToNow = housePriceIncreaseToNow / itemCost
         };
-        this.setState({housePrice: housePriceIncrease, numberOfItems: numberOfItemIncrease});
+        this.setState({housePrice: housePriceIncreaseToNow, numberOfItemIncreaseToNow: numberOfItemIncreaseToNow});
     }
 
     render() {
-        return (
-            <span>
+
+        if (this.props.showHousePriceIncrease) {
+            return <span>
                 {this
                     .state
                     .housePrice
-                    .toFixed(3)}</span>
-        );
+                    .toFixed(3)}
+            </span>;
+        } else {
+            return <span>
+                {this
+                    .state
+                    .numberOfItemIncreaseToNow
+                    .toFixed(4)}
+            </span>;
+        }
+
     }
 }
 
