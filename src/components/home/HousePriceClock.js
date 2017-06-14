@@ -41,11 +41,11 @@ class HousePriceClock extends React.Component {
 
     render() {
         return (
-            <div>
-           ${this
+            <span>
+           {this
                     .state
                     .housePrice
-                    .toFixed(4)}</div>
+                    .toFixed(4)}</span>
         );
     }
 }
