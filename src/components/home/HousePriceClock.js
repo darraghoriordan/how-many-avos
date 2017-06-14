@@ -41,15 +41,11 @@ class HousePriceClock extends React.Component {
 
     render() {
         return (
-            <p>
-                The median house price in New Zealand has increased by {this
-                    .state
-                    .numberOfItems
-                    .toFixed(4)} {this.props.itemNamePlural} (${this
+            <div>
+           ${this
                     .state
                     .housePrice
-                    .toFixed(4)}) just TODAY! Awesome!
-            </p>
+                    .toFixed(4)}</div>
         );
     }
 }
