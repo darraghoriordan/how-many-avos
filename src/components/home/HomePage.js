@@ -21,7 +21,7 @@ class HomePage extends React.Component {
                             </Col>
                             <Col xs={4} lg={6}>
                                 <span className="header-area__price-clock">
-                                    <ItemPriceClock dailyHousePriceIncrease={69} itemCost={5} showHousePriceIncrease={true}/></span>
+                                    $<ItemPriceClock dailyHousePriceIncrease={69} itemCost={5} showHousePriceIncrease={true}/></span>
                             </Col>
                         </Row>
                     </Col>
