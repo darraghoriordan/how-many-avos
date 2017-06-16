@@ -23,8 +23,8 @@ export class AvoCalculatorPage extends React.Component {
     render() {
         return (
             <div>
-                <h1>How Many Avos</h1>
-                <Row>
+                
+                <Row>                    
                     <Col md={6}>
                         <AvoCalculatorForm
                             avoCalculatorParameters={this.state.avoCalculatorParameters}

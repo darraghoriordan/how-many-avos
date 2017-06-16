@@ -4,31 +4,34 @@ import {Form} from 'react-bootstrap';
 
 const AvoCalculatorForm = ({avoCalculatorParameters, onParameterChange}) => {
     return (
-        <Form horizontal>
+        <div class="avocalculator-form">
+            <span className="avocalculator-form__header">Calculate your order here:</span>
+        <Form horizontal >
             <TextInput
+                className="avocalculator-form__houseprice"
                 name="housePrice"
-                label="House Price $"
+                label="house price ($)"
                 value={avoCalculatorParameters
                 .housePrice
                 .toString()}
                 onChange={onParameterChange}/>
             <TextInput
                 name="percentDepositRequired"
-                label="% Deposit Required"
+                label="% deposit required"
                 value={avoCalculatorParameters
                 .percentDepositRequired
                 .toString()}
                 onChange={onParameterChange}/>
                          <TextInput
                 name="giftFromParents"
-                label=" #$*^%ing Huge Gift From Parents"
+                label="parents #$*^%ing huge gift ($)"
                 value={avoCalculatorParameters
                 .giftFromParents
                 .toString()}
                 onChange={onParameterChange}/>
             <TextInput
                 name="lattes.numberPerWeek"
-                label="# Lattes you drink per week"
+                label="# lattes you drink p/wk"
                 value={avoCalculatorParameters
                 .lattes
                 .numberPerWeek
@@ -36,7 +39,7 @@ const AvoCalculatorForm = ({avoCalculatorParameters, onParameterChange}) => {
                 onChange={onParameterChange}/>
             <TextInput
                 name="avoBreakfasts.numberPerWeek"
-                label="# Avo brekkies you smash per week"
+                label="# avo brekkies you smash p/wk"
                 value={avoCalculatorParameters
                 .avoBreakfasts
                 .numberPerWeek
@@ -44,7 +47,7 @@ const AvoCalculatorForm = ({avoCalculatorParameters, onParameterChange}) => {
                 onChange={onParameterChange}/>
             <TextInput
                 name="personalSavings.cost"
-                label="Personal savings per week (be honest!)"
+                label="personal savings p/wk ($)"
                 value={avoCalculatorParameters
                 .personalSavings
                 .cost
@@ -52,6 +55,7 @@ const AvoCalculatorForm = ({avoCalculatorParameters, onParameterChange}) => {
                 onChange={onParameterChange}/>
    
         </Form>
+        </div>
     );
 };
 
