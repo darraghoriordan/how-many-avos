@@ -148,13 +148,45 @@ body {
         color: #26a383;
     }
 }
-.avocalculator-form__header{
-  color: #26a383;
-  font-weight:bold;
-  text-transform:uppercase;
-  font-size:1.3em;
-   font-family: 'Courier New', 'Courier', 'monospace';
+
+.avocalculator-form__header {
+    color: #26a383;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    font-family: 'Courier New', 'Courier', 'monospace';
+    margin-bottom: 2em;
 }
+
+.avocalculator-form__houseprice {
+    /*padding: .5em;*/
+    border: 1px solid #9b9b9b
+}
+
+.avocalculator-form__generic-input {
+    padding: 0.5em;
+    color: #66b59d;
+    font-size: 1.3em;
+    font-family: 'Courier New', 'Courier', 'monospace';
+    margin-left: 0.5em;
+    border-bottom: 1px solid #9b9b9b
+}
+
+.form-control.label {
+    color: green;
+}
+
+.form-control {
+    color: #26a383;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 2em;
+    font-family: 'Courier New', 'Courier', 'monospace';
+    background-color: #E1FFED;
+    border: 0;
+    box-shadow: none;
+}
+
 hr {
     margin: 25px auto 0;
     border-width: 1px;
@@ -165,9 +197,10 @@ hr.light {
     border-color: #ccc;
 }
 
-.menu-item{
-  margin-bottom:1em;
+.menu-item {
+    margin-bottom: 1em;
 }
+
 .menu-item__title {
     text-transform: uppercase;
     font-size: 1.3em;
@@ -188,17 +221,19 @@ hr.light {
 .menu-item__today-price-description {
     font-size: 1.3em;
     font-family: 'Courier New', 'Courier', 'monospace';
-    font-weight:bold;
-    padding-left:1em;
+    font-weight: bold;
+    padding-left: 1em;
     color: #26a383;
 }
+
 .menu-area__item-seperator {
-    margin:0; 
-    margin-bottom:1em;
-    max-width:3em;
+    margin: 0;
+    margin-bottom: 1em;
+    max-width: 3em;
 }
+
 .header-seperator__hr {
-    margin-bottom:2em;
+    margin-bottom: 2em;
 }
 
 
