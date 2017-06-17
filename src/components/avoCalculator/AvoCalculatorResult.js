@@ -10,7 +10,7 @@ const AvoCalculatorResult = ({avoCalculatorResults}) => {
 
             <p>
                 damn, you need a deposit of:
-                <span className="avocalculator-results__value">
+                <span className="avocalculator-results__deposit-value">
                     {avoCalculatorResults
                         .deposit
                         .toLocaleString("en-NZ", {
@@ -21,7 +21,7 @@ const AvoCalculatorResult = ({avoCalculatorResults}) => {
             </p>
             <hr className="avocalculator-results__seperator"/>
             <p>
-                with your #$*^%ing huge gift of
+                with your #$*^%ing huge gift</p><p>of&nbsp;
                 <span className="avocalculator-results__value">{avoCalculatorResults
                         .giftFromParents
                         .amount
@@ -32,7 +32,7 @@ const AvoCalculatorResult = ({avoCalculatorResults}) => {
                         })}</span>
             </p>
             <p>
-                and
+                and&nbsp;
                 <span className="avocalculator-results__value">{avoCalculatorResults
                         .personalSavings
                         .weeklySavings
@@ -43,7 +43,7 @@ const AvoCalculatorResult = ({avoCalculatorResults}) => {
                         })}</span>&nbsp;weekly savings
             </p>
             <p>
-                and saving
+                and saving&nbsp;
                 <span className="avocalculator-results__value">{avoCalculatorResults
                         .lattes
                         .weeklySavings
@@ -54,7 +54,7 @@ const AvoCalculatorResult = ({avoCalculatorResults}) => {
                         })}</span>&nbsp;on lattes
             </p>
             <p>
-                and
+                and&nbsp;
                 <span className="avocalculator-results__value">{avoCalculatorResults
                         .avoBreakfasts
                         .weeklySavings
@@ -65,7 +65,7 @@ const AvoCalculatorResult = ({avoCalculatorResults}) => {
                         })}</span>&nbsp;on avo brekkies
             </p>
             <p>
-                and total weekly savings of
+                and total weekly savings of&nbsp;
                 <span className="avocalculator-results__value">{avoCalculatorResults
                         .totalWeeklySavings
                         .toLocaleString("en-NZ", {
@@ -76,30 +76,28 @@ const AvoCalculatorResult = ({avoCalculatorResults}) => {
             </p>
             <hr className="avocalculator-results__seperator"/>
             <p>
-                You can save your deposit in {avoCalculatorResults
-                    .numberOfWeeksToDeposit
-                    .toFixed(2)}&nbsp;weeks! ({avoCalculatorResults
+                You can save your deposit in <span className="avocalculator-results__total-years">{avoCalculatorResults
                     .yearsToDeposit
-                    .toFixed(2)}&nbsp;years)
+                    .toFixed(2)}&nbsp;years</span>
             </p>
             <p>
-                Your mortgage payments will be
+                Your mortgage payments will be</p><p>
                 <span className="avocalculator-results__value">{avoCalculatorResults
                         .monthlyMortgagePayment
                         .toLocaleString("en-NZ", {
                             style: "currency",
                             currency: "NZD",
                             minimumFractionDigits: 2
-                        })}</span>
-                per month
+                        })}
+                &nbsp;per month</span>
             </p>
             <hr className="avocalculator-results__seperator"/>
             <p>
-                This house will really cost you {(avoCalculatorResults.monthlyMortgagePayment * 12 * 30).toLocaleString("en-NZ", {
+                This house will really cost you <span className="avocalculator-results__total-cost">{(avoCalculatorResults.monthlyMortgagePayment * 12 * 30).toLocaleString("en-NZ", {
                     style: "currency",
                     currency: "NZD",
                     minimumFractionDigits: 2
-                })}
+                })}</span>
             </p>
         </div>
     );

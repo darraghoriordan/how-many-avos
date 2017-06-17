@@ -160,7 +160,7 @@ body {
 
 .avocalculator-form__generic-input {
     padding: 0.5em;
-    width:80%;
+    width: 80%;
     color: #66b59d;
     font-size: 1.3em;
     font-family: 'Courier New', 'Courier', 'monospace';
@@ -185,11 +185,59 @@ body {
 }
 
 .form-group label {
-  margin-left:0.8em;
+    margin-left: 0.8em;
+    color: #66b59d;
 }
 
 input[type=text]:focus {
     outline: none;
+}
+
+.avocalculator-results__header {
+    color: #26a383;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 1.3em;
+    font-family: 'Courier New', 'Courier', 'monospace';
+    margin-bottom: 1em;
+}
+
+.avocalculator-results p {
+    color: #66b59d;
+    font-family: 'Courier New', 'Courier', 'monospace';
+}
+
+.avocalculator-results__deposit-value {
+    font-size: 3em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #26a383;
+    display: block;
+}
+
+.avocalculator-results__value {
+    font-size: 1.3em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #26a383;
+}
+
+.avocalculator-results__total-years {
+    font-size: 3em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #26a383;
+    display: block;
+}
+
+.avocalculator-results__total-cost {
+    font-size: 3em;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    color: #26a383;
+    display: block;
+}
+
+.avocalculator-results__seperator {
+    margin: 0;
+    margin-bottom: 1em;
+    max-width: 3em;
 }
 
 hr {
