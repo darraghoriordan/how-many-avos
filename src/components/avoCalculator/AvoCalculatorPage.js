@@ -55,9 +55,9 @@ export class AvoCalculatorPage extends React.Component {
              avoCalculatorParameters.personalSavings = Object.assign({}, this.state.avoCalculatorParameters.personalSavings);
         let fieldNames = field.split(".");
         if (fieldNames.length === 2) {
-            avoCalculatorParameters[fieldNames[0]][fieldNames[1]] = event.target.value;
+            avoCalculatorParameters[fieldNames[0]][fieldNames[1]] = event.target.rawValue;
         } else {
-            avoCalculatorParameters[fieldNames[0]] = event.target.value;
+            avoCalculatorParameters[fieldNames[0]] = event.target.rawValue;
         }
         // this.setState({avoCalculatorParameters});
         this

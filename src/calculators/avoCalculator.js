@@ -16,7 +16,7 @@ export default class AvoCalculator {
         if (oneOffSavings <= 0) {
             return result;
         }
-        result.amount = oneOffSavings;
+        result.amount = oneOffSavings*1.0;
         result.percentTotalDeposit = (oneOffSavings / deposit) * 100;
         result.timeBenefitInWeeks = numberOfWeeksToDeposit * (result.percentTotalDeposit / 100);
         result.timeBenefitInYears = result.timeBenefitInWeeks / 52;
