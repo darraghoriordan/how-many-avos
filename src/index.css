@@ -155,7 +155,7 @@ body {
     text-transform: uppercase;
     font-size: 1.3em;
     font-family: 'Courier New', 'Courier', 'monospace';
-    margin-bottom: 2em;
+    margin-bottom: 1em;
 }
 
 .avocalculator-form__generic-input {
@@ -182,6 +182,10 @@ body {
     background-color: #E1FFED;
     border: 0;
     box-shadow: none;
+}
+
+.form-group label {
+  margin-left:0.8em;
 }
 
 input[type=text]:focus {
