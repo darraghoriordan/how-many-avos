@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import Cleave from 'cleave.js/react';
 
 const TextInput = ({ name, label, additionalClasses, onChange, placeholder, value, error }) => {
   let wrapperClass = 'form-group';
@@ -12,9 +13,10 @@ const TextInput = ({ name, label, additionalClasses, onChange, placeholder, valu
     <div className={wrapperClass}>
       <label htmlFor={name}>{label}</label>
       <div className="field">
-        <input
+        <Cleave
           type="text"
           name={name}
+          options={{ numeral: true}}
           className="form-control"
           placeholder={placeholder}
           value={value}

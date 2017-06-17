@@ -17,6 +17,7 @@
     "@types/react": "^15.0.22",
     "@types/react-dom": "^15.5.0",
     "bootstrap": "^3.3.7",
+    "cleave.js": "^0.7.17",
     "jquery": "^3.2.1",
     "react": "^15.4.2",
     "react-bootstrap": "^0.30.9",
