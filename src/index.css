@@ -187,6 +187,8 @@ body {
 .form-group label {
     margin-left: 0.8em;
     color: #66b59d;
+    font-size: 0.8em;
+    font-weight: normal;
 }
 
 input[type=text]:focus {
@@ -204,6 +206,7 @@ input[type=text]:focus {
 
 .avocalculator-results p {
     color: #66b59d;
+    font-size: 1em;
     font-family: 'Courier New', 'Courier', 'monospace';
 }
 
