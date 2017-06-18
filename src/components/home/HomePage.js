@@ -16,10 +16,10 @@ class HomePage extends React.Component {
                             </Col>
                         </Row>
                         <Row className="equal">
-                            <Col xs={8} lg={6}>
+                            <Col md={6}>
                                 <span className="header-area__subtitle">Today's NZ median house price has increased by</span>
                             </Col>
-                            <Col xs={4} lg={6}>
+                            <Col  md={6}>
                                 <span className="header-area__price-clock">
                                     $<ItemPriceClock dailyHousePriceIncrease={69} itemCost={5} showHousePriceIncrease={true} /></span>
                             </Col>
