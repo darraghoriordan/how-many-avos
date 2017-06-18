@@ -165,12 +165,12 @@ body {
     font-size: 1.3em;
     font-family: 'Courier New', 'Courier', 'monospace';
     margin-left: 0.5em;
-    border-bottom: 1px solid #9b9b9b
+    border-bottom: 1px solid #ccc
 }
 
 .avocalculator-form__houseprice {
     /*padding: .5em;*/
-    border: 1px solid #9b9b9b
+    border: 1px solid #ccc
 }
 
 .form-control {
