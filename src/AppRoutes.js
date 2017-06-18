@@ -5,12 +5,14 @@ import AboutPage from './components/about/AboutPage';
 import AvoCalculatorPage from './components/avoCalculator/AvoCalculatorPage';
 import CoursePage from './components/courses/CoursePage';
 import ManageCoursePage from './components/courses/ManageCoursePage';
+import gaWrappedComponent from './GaWrappedComponent';
 
 class AppRoutes extends React.Component {
+
   render() {
     return (
       <div>
-        <Route exact path="/" component={HomePage}/>
+        <Route exact path="/" component={gaWrappedComponent(HomePage)}/>
         <Route path="/about" component={AboutPage}/>
         <Switch>
           <Route path="/courses" component={CoursePage}/>

@@ -13,6 +13,7 @@ import {loadAuthors} from './actions/authorActions';
 import {calculateResult} from './actions/avoCalculatorActions';
 import '../node_modules/toastr/build/toastr.min.css';
 import initialState from './reducers/initialState';
+
 // this is where you could rehydrate from loclaStorage or api
 const store = configureStore();
 
