@@ -48,7 +48,7 @@ class HomePage extends React.Component {
                                 itemPrice={22}
                                 itemName={"smashed avodado toast"}
                                 itemNamePlural={"smashed avos"}
-                                itemDescription={"avocados lovingly bshed to a pulp, juice of lime, cherry tomatos w/ corriander"} />
+                                itemDescription={"avocados lovingly bashed to a soft pulp, juice of lime, cherry tomatos w/ corriander"} />
                             <hr className="menu-area__item-seperator" />
                         </Col>
                     </Row>
@@ -58,7 +58,7 @@ class HomePage extends React.Component {
                                 itemPrice={4.5}
                                 itemName={"latte"}
                                 itemNamePlural={"lattes"}
-                                itemDescription={"fresh seventy two brothers beans batch roasted seven times"} />
+                                itemDescription={"fresh seventy two brothers beans batch roasted seven times, hand ground"} />
                             <hr className="menu-area__item-seperator" />
                         </Col>
                         <Col xs={6}>

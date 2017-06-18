@@ -5,7 +5,7 @@ const AvoCalculatorResult = ({avoCalculatorResults}) => {
     return (
         <div className="avocalculator-results">
             <p className="avocalculator-results__header">
-                Calculate your order here:</p>
+                Your order summary:</p>
 
             <p>
                 damn, you need a deposit of:
