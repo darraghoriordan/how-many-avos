@@ -9,9 +9,9 @@ class HomePage extends React.Component {
         return (
             <div id="header-area">
                 <Row>
-                    <Col xs={6}>
+                    <Col sm={6}>
                         <Row>
-                            <Col xs={12}>
+                            <Col>
                                 <p className="header-area__title">Smashed<br />Avocado Time!</p>
                             </Col>
                         </Row>
@@ -25,7 +25,7 @@ class HomePage extends React.Component {
                             </Col>
                         </Row>
                     </Col>
-                    <Col xs={6}>
+                    <Col sm={6}>
                         <img
                             className="img-responsive center-block"
                             src={require("../../images/fresh-made-data-211-x-211.png")}
@@ -35,7 +35,7 @@ class HomePage extends React.Component {
                 <hr className="header-seperator__hr" />
                 <div id="menu-area">
                     <Row>
-                        <Col xs={6}>
+                        <Col sm={6}>
                             <MenuItem
                                 itemPrice={5}
                                 itemName={"tea"}
@@ -43,7 +43,7 @@ class HomePage extends React.Component {
                                 itemDescription={"triple distilled hibiscus flower, elderberry soaked in boiling spring water"} />
                             <hr className="menu-area__item-seperator" />
                         </Col>
-                        <Col xs={6}>
+                        <Col sm={6}>
                             <MenuItem
                                 itemPrice={22}
                                 itemName={"smashed avodado toast"}
@@ -53,7 +53,7 @@ class HomePage extends React.Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Col xs={6}>
+                        <Col sm={6}>
                             <MenuItem
                                 itemPrice={4.5}
                                 itemName={"latte"}
@@ -61,7 +61,7 @@ class HomePage extends React.Component {
                                 itemDescription={"fresh seventy two brothers beans batch roasted seven times, hand ground"} />
                             <hr className="menu-area__item-seperator" />
                         </Col>
-                        <Col xs={6}>
+                        <Col sm={6}>
                             <MenuItem
                                 itemPrice={4.5}
                                 itemName={"french toast"}
@@ -71,7 +71,7 @@ class HomePage extends React.Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Col xs={6}>
+                        <Col sm={6}>
                             <MenuItem
                                 itemPrice={16}
                                 itemName={"home made muesli"}
@@ -79,7 +79,7 @@ class HomePage extends React.Component {
                                 itemDescription={"w/ sugar-free seasonal fruits, freshly milked goat yoghurt and buckwehat-roasted oats"} />
 
                         </Col>
-                        <Col xs={6}>
+                        <Col sm={6}>
                             <MenuItem
                                 itemPrice={18.5}
                                 itemName={"egg benedict"}
@@ -89,7 +89,7 @@ class HomePage extends React.Component {
                         </Col>
                     </Row>
                     <Row>
-                        <Col sm={12} >
+                        <Col>
                             <hr className="header-seperator__hr" />
                         </Col>
                     </Row>
