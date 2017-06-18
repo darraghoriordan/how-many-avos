@@ -5,7 +5,7 @@ import {Form} from 'react-bootstrap';
 const AvoCalculatorForm = ({avoCalculatorParameters, onParameterChange}) => {
     return (
         <div className="avocalculator-form">
-            <p className="avocalculator-form__header">Calculate your order here:</p>
+            <h2 className="avocalculator-form__header">Calculate your order here:</h2>
             <Form horizontal>
                 <TextInput
                     additionalClasses="avocalculator-form__generic-input avocalculator-form__houseprice"

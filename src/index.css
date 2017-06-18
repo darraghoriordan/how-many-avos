@@ -155,7 +155,7 @@ body {
     text-transform: uppercase;
     font-size: 1.3em;
     font-family: 'Courier New', 'Courier', 'monospace';
-    margin-bottom: 1em;
+    margin-bottom: 1.3em;
 }
 
 .avocalculator-form__generic-input {
@@ -195,19 +195,19 @@ input[type=text]:focus {
     outline: none;
 }
 
+
+.avocalculator-results p {
+    color: #66b59d;
+    font-size: 1em;
+    font-family: 'Courier New', 'Courier', 'monospace';
+}
 .avocalculator-results__header {
     color: #26a383;
     font-weight: bold;
     text-transform: uppercase;
     font-size: 1.3em;
     font-family: 'Courier New', 'Courier', 'monospace';
-    margin-bottom: 1em;
-}
-
-.avocalculator-results p {
-    color: #66b59d;
-    font-size: 1em;
-    font-family: 'Courier New', 'Courier', 'monospace';
+    margin-bottom: 1.3em;
 }
 
 .avocalculator-results__deposit-value {

@@ -4,8 +4,8 @@ const AvoCalculatorResult = ({avoCalculatorResults}) => {
 
     return (
         <div className="avocalculator-results">
-            <p className="avocalculator-results__header">
-                Your order summary:</p>
+            <h2 className="avocalculator-results__header">
+                Your order summary:</h2>
 
             <p>
                 damn, you need a deposit of:
