@@ -17,7 +17,7 @@ class AboutPage extends React.Component {
                     calculated in a basic way, by a shitty programmer and with crazy, wild
                     assumptions.</p>
                 <p>I assume no interest growth in your savings. I don't include any inflation.</p>
-                <p>I assume 7% mortgage rates. An avo breakfast costs $22, a latte is $4.50</p>
+                <p>I assume 7% mortgage rates.</p>
                 <p>Billie Charlton did the Ux and design (which I haven't fully implemented yet!)</p>
                 <p>Get in touch with me over at&nbsp;
                     <a href="https://www.darraghoriordan.com">https://www.darraghoriordan.com</a>
