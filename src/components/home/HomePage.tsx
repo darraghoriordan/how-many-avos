@@ -123,15 +123,17 @@ const HomePage = () => {
         designed by{" "}
         <a className="underline" href="https://www.behance.net/capandshoe6ebf">
           Billie Charlton
-        </a>{" "}
-        - © 2021
+        </a>
       </p>
       <p className="mb-4 font-mono text-sm text-center text-darkGreen">
         coded by{" "}
         <a className="underline" href="https://www.darraghoriordan.com">
           https://www.darraghoriordan.com
-        </a>{" "}
-        - © 2021
+        </a>
+      </p>
+      <p className="mb-4 font-mono text-sm text-center text-darkGreen">
+        {" "}
+        © 2021{" "}
       </p>
     </div>
   );
