@@ -1,56 +1,21 @@
-import React from "react";
+import { Link } from "react-router-dom";
 
-const AboutPage = () => {
+export default function AboutPage() {
   return (
-    <div className="flex flex-col my-8 font-mono text-lg space-y-12">
-      <h1 className="text-5xl uppercase text-darkGreen">About</h1>
-      <p>
-        In 2018 was getting a bit frustrated with some of the media commentary
-        about how people should give up their lattes and monthly netflix to save
-        enough for a house deposit in New Zealand.
-      </p>
-      <p>
-        I created this silly calculator to show there's a bit more to the
-        housing problem. Saving for a deposit takes more than giving up some
-        lattes. Property prices are increasing at a severe rate at the moment,
-        between 10-20% per year while incomes are stagnant (this is 2021 for
-        future readers!).
-      </p>
-      <p>
-        Using the Avo Calc you can see that a person would have to be drinking
-        more than 50 lattes a day to keep up New Zealand property prices at the
-        moment.
-      </p>
-      <p>
-        I was lucky enough to be able to afford property since I originally made
-        this calculator but it was only through salary increases due to the
-        continuing tech boom. Giving up coffee wouldn't have made a difference.
-      </p>
-      <p>
-        More and more people are being forced into life time renting. The
-        situation is worse now than ever before. I feel that people should be
-        able to enjoy a coffee and a place of their own to live in.
-      </p>
-      <p>
-        This is a parody calculator and shouldn't be taken seriously, the
-        amortization numbers are all calculated in a basic way, by a shitty
-        programmer and with crazy, wild assumptions.
-      </p>
-      <p>
-        For example I assume no interest growth in your savings. I don't include
-        any inflation and I assume 4% mortgage rates. The mortgage term is fixed
-        at 30 years.
-      </p>
-      <p>
-        Get in touch with me over at{" "}
-        <a className="underline" href="https://www.darraghoriordan.com">
-          https://www.darraghoriordan.com
-        </a>{" "}
-        if you need to contact me. Links to all the social media sites are on
-        there too.
-      </p>
-    </div>
+    <article className="about-page">
+      <header>
+        <h1>A small calculator about a very big problem.</h1>
+        <p className="about-page__lead">Built in 2018, refreshed for today, and still firmly on the side of brunch.</p>
+      </header>
+      <div className="about-page__body">
+        <p>I made this after getting frustrated with commentary suggesting people could save a New Zealand house deposit by giving up lattes and Netflix.</p>
+        <p>The calculator makes the gap visible: when property prices climb faster than incomes, skipping small pleasures is not a housing policy.</p>
+        <blockquote>People should be able to enjoy a coffee and have a place of their own to live.</blockquote>
+        <p>This is parody, not financial advice. The calculator uses deliberately simple assumptions: no growth on savings, no inflation, a 4% mortgage rate and a 30-year term.</p>
+        <p>I was eventually fortunate enough to buy property, but salary growth during the tech boom—not giving up coffee—made the difference.</p>
+        <p>Questions or corrections? Find me at <a href="https://www.darraghoriordan.com">darraghoriordan.com</a>.</p>
+        <Link className="text-link" to="/">Try the calculator <span aria-hidden="true">→</span></Link>
+      </div>
+    </article>
   );
-};
-
-export default AboutPage;
+}

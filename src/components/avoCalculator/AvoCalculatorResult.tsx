@@ -1,111 +1,43 @@
-import React from "react";
-import { AvoCalculatorResults } from "../../calculators/AvoCalculatorResults";
-import { SectionHorizontalRule } from "../home/SectionHorizontalRule";
+import type { CalculatorResult } from "../../calculators/calculator";
 
-export type AvoCalculatorResultProps = {
-  avoCalculatorResults: AvoCalculatorResults;
+type AvoCalculatorResultProps = {
+  result: CalculatorResult;
+  giftFromParents: number;
 };
-const AvoCalculatorResult = ({
-  avoCalculatorResults,
-}: AvoCalculatorResultProps) => {
+
+const currency = new Intl.NumberFormat("en-NZ", {
+  style: "currency",
+  currency: "NZD",
+  maximumFractionDigits: 0,
+});
+
+export default function AvoCalculatorResult({ result, giftFromParents }: AvoCalculatorResultProps) {
   return (
-    <div className="flex flex-col font-mono text-sm text-darkGreen space-y-4">
-      <h2 className="mb-2 text-xl uppercase">Your order summary:</h2>
+    <aside className="receipt" aria-live="polite" aria-label="Your result">
+      <div className="receipt__top">
+        <span>Order summary</span>
+        <span>NZD</span>
+      </div>
 
-      <p className="font-mono text-darkGreen">
-        looks like you need a deposit of{" "}
-        <span className="block my-5 text-5xl">
-          {avoCalculatorResults.deposit.toLocaleString("en-NZ", {
-            style: "currency",
-            currency: "NZD",
-            minimumFractionDigits: 2,
-          })}
-        </span>
-      </p>
-      <SectionHorizontalRule />
+      <div className="receipt__headline">
+        <span>Time to save the deposit</span>
+        <strong>{result.yearsToDeposit === null ? "∞" : result.yearsToDeposit.toFixed(1)}</strong>
+        <span>{result.yearsToDeposit === 1 ? "year" : "years"}</span>
+      </div>
 
-      <p>
-        with{" "}
-        <span className="avocalculator-results__value">
-          {avoCalculatorResults.personalSavings.weeklySavings.toLocaleString(
-            "en-NZ",
-            {
-              style: "currency",
-              currency: "NZD",
-              minimumFractionDigits: 2,
-            }
-          )}
-        </span>{" "}
-        weekly savings and sacrificing{" "}
-        <span className="avocalculator-results__value">
-          {avoCalculatorResults.lattes.weeklySavings.toLocaleString("en-NZ", {
-            style: "currency",
-            currency: "NZD",
-            minimumFractionDigits: 2,
-          })}
-        </span>{" "}
-        on lattes and{" "}
-        <span className="avocalculator-results__value">
-          {avoCalculatorResults.avoBreakfasts.weeklySavings.toLocaleString(
-            "en-NZ",
-            {
-              style: "currency",
-              currency: "NZD",
-              minimumFractionDigits: 2,
-            }
-          )}
-        </span>{" "}
-        on avo brekkies per week{" "}
-        {avoCalculatorResults.giftFromParents.amount > 0 ? (
-          <>
-            {" "}
-            and with your #$*^%ing huge gift of{" "}
-            <span className="avocalculator-results__value">
-              {avoCalculatorResults.giftFromParents.amount.toLocaleString(
-                "en-NZ",
-                {
-                  style: "currency",
-                  currency: "NZD",
-                  minimumFractionDigits: 2,
-                }
-              )}
-            </span>{" "}
-          </>
-        ) : undefined}
-        you can save your deposit in{" "}
-        <span className="block my-8 text-5xl">
-          {avoCalculatorResults.yearsToDeposit.toFixed(2)} years
-        </span>
-      </p>
-      <p>
-        Your mortgage payments will be{" "}
-        <span className="avocalculator-results__value">
-          {avoCalculatorResults.monthlyMortgagePayment.toLocaleString("en-NZ", {
-            style: "currency",
-            currency: "NZD",
-            minimumFractionDigits: 2,
-          })}{" "}
-          per month
-        </span>
-      </p>
-      <SectionHorizontalRule />
-      <p>
-        This house will really cost you{" "}
-        <span className="avocalculator-results__total-cost">
-          {(
-            avoCalculatorResults.monthlyMortgagePayment *
-            12 *
-            30
-          ).toLocaleString("en-NZ", {
-            style: "currency",
-            currency: "NZD",
-            minimumFractionDigits: 2,
-          })}
-        </span>
-      </p>
-      <p>Try sacrificing a few more lattes to see the impact</p>
-    </div>
+      <dl className="receipt__lines">
+        <div><dt>Deposit needed</dt><dd>{currency.format(result.deposit)}</dd></div>
+        <div><dt>Your weekly savings</dt><dd>{currency.format(result.weeklySavings)}</dd></div>
+        <div><dt>Saved on lattes</dt><dd>{currency.format(result.latteSavings)}/wk</dd></div>
+        <div><dt>Saved on avo brekkies</dt><dd>{currency.format(result.avoSavings)}/wk</dd></div>
+        {giftFromParents > 0 ? <div><dt>One-off gift</dt><dd>{currency.format(giftFromParents)}</dd></div> : null}
+      </dl>
+
+      <div className="receipt__total">
+        <span>Monthly mortgage</span>
+        <strong>{currency.format(result.monthlyMortgagePayment)}</strong>
+      </div>
+      <p className="receipt__fineprint">Over 30 years at 4%, the mortgage totals about {currency.format(result.totalMortgageCost)}. This intentionally simple estimate is not financial advice.</p>
+    </aside>
   );
-};
-
-export default React.memo(AvoCalculatorResult);
+}

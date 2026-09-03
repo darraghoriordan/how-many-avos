@@ -1,142 +1,69 @@
-import React from "react";
-import MenuItem from "./MenuItem";
 import AvoCalculatorLayout from "../avoCalculator/AvoCalculatorLayout";
-import useCurrentHouseIncrease from "./useCurrentHouseIncrease";
-import { SectionHorizontalRule } from "./SectionHorizontalRule";
+import MenuItem from "./MenuItem";
+import useCurrentHousePriceChange, { annualPercentageToDailyDollarChange } from "./useCurrentHousePriceChange";
 
-const HomePage = () => {
-  const housePriceIncreaseToNow = useCurrentHouseIncrease(340);
+const JULY_2026_NZ_MEDIAN_PRICE = 760_000;
+const JULY_2026_ANNUAL_CHANGE_PERCENT = -0.7;
+const DAILY_MEDIAN_PRICE_CHANGE = annualPercentageToDailyDollarChange(
+  JULY_2026_NZ_MEDIAN_PRICE,
+  JULY_2026_ANNUAL_CHANGE_PERCENT,
+);
 
-  if (housePriceIncreaseToNow === 0) {
-    return (
-      <div className="flex items-center content-center justify-center min-h-screen">
-        <div className="font-mono text-darkGreen">Scooping the avos...</div>
-      </div>
-    );
-  }
+const currency = new Intl.NumberFormat("en-NZ", {
+  style: "currency",
+  currency: "NZD",
+  minimumFractionDigits: 2,
+  maximumFractionDigits: 2,
+});
+
+const menu = [
+  { name: "Tea", plural: "teas", price: 5, description: "Hibiscus and elderberry steeped in volcanic spring water." },
+  { name: "Smashed avo", plural: "smashed avos", price: 22, description: "Avocado, lime, cherry tomatoes and coriander on a fresh bagel." },
+  { name: "Latte", plural: "lattes", price: 4.5, description: "Single-origin beans, batch roasted and hand ground." },
+  { name: "French toast", plural: "French toasts", price: 18, description: "Buckwheat, orange syrup, spice and vanilla mascarpone." },
+  { name: "House muesli", plural: "muesli bowls", price: 16, description: "Roasted oats, fig, almonds, yoghurt and seasonal fruit." },
+  { name: "Eggs bene", plural: "eggs benes", price: 18.5, description: "Free-range pork, hollandaise and mushrooms on buckwheat toast." },
+] as const;
+
+export default function HomePage() {
+  const housePriceIncrease = useCurrentHousePriceChange(DAILY_MEDIAN_PRICE_CHANGE);
 
   return (
-    <div className="">
-      <div className="flex flex-row items-center justify-between my-8">
-        <div className="flex-col lg:w-1/2 space-y-4">
-          <h1 className="text-5xl uppercase text-darkGreen">
-            Smashed Avocado Time!
-          </h1>
+    <>
+      <section className="hero" aria-labelledby="hero-heading">
+        <div>
+          <h1 id="hero-heading">Your brunch is not the housing crisis.</h1>
+          <p className="hero__intro">
+            A tongue-in-cheek calculator for everyone who has been told a latte stands between them and a home.
+          </p>
+          <a className="hero__jump" href="#calculator">Ring up your order <span aria-hidden="true">↓</span></a>
+        </div>
+        <div className="price-ticket" aria-live="off">
+          <span>Today the New Zealand median house price has increased by</span>
+          <strong>{currency.format(housePriceIncrease)}</strong>
+        </div>
+      </section>
 
-          <div className="flex items-center justify-evenly space-x-4">
-            <span className="font-mono text-base md:w-1/3 text-darkGreen">
-              Today the New Zealand median house price has increased by
-            </span>
+      <section className="menu-section" aria-labelledby="menu-heading">
+        <div className="section-heading">
+          <h2 id="menu-heading">Today’s menu</h2>
+        </div>
+        <div className="menu-grid">
+          {menu.map((item) => <MenuItem key={item.name} {...item} housePriceIncrease={housePriceIncrease} />)}
+        </div>
+      </section>
 
-            <span className="font-mono text-3xl md:w-2/3 md:text-6xl text-darkGreen">
-              {`$${housePriceIncreaseToNow.toFixed(3)}`}
-            </span>
-          </div>
-        </div>
-        <div className="invisible pr-8  lg:pr-20 lg:visible">
-          <img
-            className="img-responsive center-block"
-            src={"/images/fresh-made-data-211-x-211.png"}
-            alt="Our data is 100% vegan"
-          />
-        </div>
-      </div>
-      <h2 className="mb-2 font-mono text-xl uppercase text-darkGreen">
-        Today's menu:
-      </h2>
-      <SectionHorizontalRule />
-      <div className="mt-8 grid md:grid-cols-2 grid-cols-1 gap-x-8 gap-y-4">
-        <div className="">
-          <MenuItem
-            itemPrice={5}
-            housePriceIncreaseToNow={housePriceIncreaseToNow}
-            itemName={"tea"}
-            itemNamePlural={"teas"}
-            itemDescription={
-              "triple distilled hibiscus flower and elderberry soaked for 314 seconds in 92 °C volcanic spring water"
-            }
-          />
-        </div>
-        <div className="col">
-          <MenuItem
-            itemPrice={22}
-            housePriceIncreaseToNow={housePriceIncreaseToNow}
-            itemName={"smashed avodado toast"}
-            itemNamePlural={"smashed avos"}
-            itemDescription={
-              "Chef's special - organic avocados lovingly mashed to a soft pulp, juice of lime, cherry tomatos w/ corriander on one of our own fresh bagels"
-            }
-          />
-        </div>
-
-        <div className="col">
-          <MenuItem
-            itemPrice={4.5}
-            housePriceIncreaseToNow={housePriceIncreaseToNow}
-            itemName={"latte"}
-            itemNamePlural={"lattes"}
-            itemDescription={
-              "fresh seventy-two-brothers single-origin beans, batch roasted seven times, hand ground in our pedal-powered grinder"
-            }
-          />
-        </div>
-        <div className="col">
-          <MenuItem
-            itemPrice={4.5}
-            housePriceIncreaseToNow={housePriceIncreaseToNow}
-            itemName={"french toast"}
-            itemNamePlural={"french toasts"}
-            itemDescription={
-              "hand-toasted buckwheat slices soaked in orange sugar-free syrup w/ spices and vanilla mascarpone"
-            }
-          />
-        </div>
-
-        <div className="col">
-          <MenuItem
-            itemPrice={16}
-            housePriceIncreaseToNow={housePriceIncreaseToNow}
-            itemName={"home made muesli"}
-            itemNamePlural={"muesli bowls"}
-            itemDescription={
-              "buckwheat roasted oats, burnt fig and almonds w/ freshly milked goat yoghurt and topped with refined-sugar free fresh seasonal fruits "
-            }
-            showDivider={false}
-          />
-        </div>
-        <div className="col">
-          <MenuItem
-            itemPrice={18.5}
-            itemName={"egg benedict"}
-            housePriceIncreaseToNow={housePriceIncreaseToNow}
-            itemNamePlural={"eggs benes"}
-            itemDescription={
-              "w/ free-range pork sirloin slivers (ask us the name of the pig), hollandaise sauce and braised garlic mushrooms on sprouted buckwheat toast"
-            }
-            showDivider={false}
-          />
-        </div>
-      </div>
-      <SectionHorizontalRule />
       <AvoCalculatorLayout />
-      <p className="mb-4 font-mono text-sm text-center text-darkGreen">
-        designed by{" "}
-        <a className="underline" href="https://www.behance.net/capandshoe6ebf">
-          Billie Charlton
-        </a>
-      </p>
-      <p className="mb-4 font-mono text-sm text-center text-darkGreen">
-        coded by{" "}
-        <a className="underline" href="https://www.darraghoriordan.com">
-          https://www.darraghoriordan.com
-        </a>
-      </p>
-      <p className="mb-4 font-mono text-sm text-center text-darkGreen">
-        {" "}
-        © 2021{" "}
-      </p>
-    </div>
-  );
-};
 
-export default HomePage;
+      <footer className="site-footer">
+        <div>
+          <p>Designed by <a href="https://www.behance.net/capandshoe6ebf">Billie Charlton</a></p>
+          <p>Built by <a href="https://www.darraghoriordan.com">Darragh O’Riordan</a> · © {new Date().getFullYear()}</p>
+        </div>
+        <p className="site-footer__data-note">
+          (Previous 1-year NZ-wide growth as of September 2026. <a href="https://www.reinz.co.nz/Web/Web/News/News-Articles/Market-updates/Prices_remain_steady_as_properties_take_longer_to_sell.aspx">REINZ, July 2026</a>.)
+        </p>
+      </footer>
+    </>
+  );
+}

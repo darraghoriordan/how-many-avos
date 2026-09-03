@@ -10,6 +10,11 @@
 
 # production
 /build
+/dist
+/.wrangler
+/.impeccable/*
+!/.impeccable/design.json
+*.tsbuildinfo
 
 # misc
 .DS_Store

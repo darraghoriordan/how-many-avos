@@ -1,0 +1,163 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-03T09:33:17Z",
+  "title": "Design System: How Many Avos?",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "primary",
+        "displayName": "Deep Café Ink",
+        "canonical": "#173e32",
+        "tonalRamp": ["oklch(18% 0.045 166)", "oklch(28% 0.055 166)", "oklch(38% 0.06 166)", "oklch(48% 0.06 166)", "oklch(60% 0.05 166)", "oklch(72% 0.04 166)", "oklch(84% 0.025 166)", "oklch(95% 0.01 166)"]
+      },
+      "paper": {
+        "role": "neutral",
+        "displayName": "Cream Paper",
+        "canonical": "#f4f1e8",
+        "tonalRamp": ["oklch(18% 0.012 90)", "oklch(30% 0.016 90)", "oklch(42% 0.018 90)", "oklch(54% 0.02 90)", "oklch(66% 0.022 90)", "oklch(78% 0.023 90)", "oklch(88% 0.022 90)", "oklch(96% 0.018 90)"]
+      },
+      "paper-deep": {
+        "role": "neutral",
+        "displayName": "Deep Cream Paper",
+        "canonical": "#e8e2d2",
+        "tonalRamp": ["oklch(18% 0.018 86)", "oklch(30% 0.022 86)", "oklch(42% 0.026 86)", "oklch(54% 0.03 86)", "oklch(66% 0.032 86)", "oklch(76% 0.032 86)", "oklch(86% 0.028 86)", "oklch(95% 0.018 86)"]
+      },
+      "avocado": {
+        "role": "secondary",
+        "displayName": "Avocado Flesh",
+        "canonical": "#b9d36a",
+        "tonalRamp": ["oklch(18% 0.07 115)", "oklch(28% 0.1 115)", "oklch(38% 0.13 115)", "oklch(50% 0.15 115)", "oklch(62% 0.16 115)", "oklch(74% 0.15 115)", "oklch(85% 0.1 115)", "oklch(95% 0.04 115)"]
+      },
+      "lime": {
+        "role": "secondary",
+        "displayName": "Lime Highlight",
+        "canonical": "#dff29a",
+        "tonalRamp": ["oklch(18% 0.065 112)", "oklch(28% 0.095 112)", "oklch(40% 0.125 112)", "oklch(52% 0.145 112)", "oklch(64% 0.15 112)", "oklch(76% 0.14 112)", "oklch(87% 0.1 112)", "oklch(95% 0.045 112)"]
+      },
+      "orange": {
+        "role": "tertiary",
+        "displayName": "Citrus Orange",
+        "canonical": "#f06f3c",
+        "tonalRamp": ["oklch(18% 0.075 42)", "oklch(28% 0.11 42)", "oklch(40% 0.15 42)", "oklch(52% 0.18 42)", "oklch(64% 0.19 42)", "oklch(76% 0.15 42)", "oklch(87% 0.09 42)", "oklch(95% 0.035 42)"]
+      },
+      "orange-ink": {
+        "role": "tertiary",
+        "displayName": "Burnt Orange Ink",
+        "canonical": "#b74723",
+        "tonalRamp": ["oklch(18% 0.07 40)", "oklch(28% 0.105 40)", "oklch(38% 0.14 40)", "oklch(48% 0.16 40)", "oklch(60% 0.15 40)", "oklch(72% 0.12 40)", "oklch(84% 0.075 40)", "oklch(95% 0.03 40)"]
+      },
+      "copy-muted": {
+        "role": "neutral",
+        "displayName": "Muted Green Copy",
+        "canonical": "#3e5a50",
+        "tonalRamp": ["oklch(18% 0.025 166)", "oklch(28% 0.035 166)", "oklch(38% 0.04 166)", "oklch(48% 0.04 166)", "oklch(60% 0.035 166)", "oklch(72% 0.028 166)", "oklch(84% 0.018 166)", "oklch(95% 0.008 166)"]
+      },
+      "rule": {
+        "role": "neutral",
+        "displayName": "Botanical Rule",
+        "canonical": "rgba(23, 62, 50, 0.28)",
+        "tonalRamp": ["oklch(18% 0.035 166)", "oklch(28% 0.045 166)", "oklch(38% 0.05 166)", "oklch(48% 0.045 166)", "oklch(60% 0.038 166)", "oklch(72% 0.028 166)", "oklch(84% 0.016 166)", "oklch(95% 0.006 166)"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero and major page titles with a short, balanced measure." },
+      "headline": { "displayName": "Headline", "purpose": "Major section headings in the page flow." },
+      "title": { "displayName": "Title", "purpose": "Menu names, form legends, and compact editorial subheads." },
+      "body": { "displayName": "Body", "purpose": "Descriptions and supporting explanations." },
+      "label": { "displayName": "Label", "purpose": "Navigation, receipt metadata, line items, notes, and fine print." }
+    },
+    "shadows": [
+      { "name": "green-ticket-lift", "value": "14px 18px 38px rgba(23, 62, 50, 0.18)", "purpose": "Lifts the dark price ticket from the cream page." },
+      { "name": "receipt-lift", "value": "14px 18px 38px rgba(0, 0, 0, 0.18)", "purpose": "Lifts the cream receipt from the dark calculator field." }
+    ],
+    "motion": [
+      { "name": "page-scroll", "value": "smooth", "purpose": "Moves the hero jump to the calculator; resolves to auto when reduced motion is requested." }
+    ],
+    "breakpoints": [
+      { "name": "stack", "value": "760px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "navigation-link",
+      "description": "Compact pill navigation with an ink-filled active route.",
+      "html": "<nav class=\"ds-nav\" aria-label=\"Design system navigation\"><a class=\"ds-nav-link ds-nav-link-active\" href=\"#\">Calculator</a><a class=\"ds-nav-link\" href=\"#\">The story</a></nav>",
+      "css": ".ds-nav { display:flex; align-items:center; gap:.25rem; color:var(--ink,#173e32); font-family:'DM Mono',ui-monospace,monospace; } .ds-nav-link { padding:.65rem .8rem; border-radius:999px; color:inherit; font-size:.78rem; font-weight:500; letter-spacing:.04em; text-decoration:none; text-transform:uppercase; transition:background-color 160ms ease; } .ds-nav-link:hover { background:var(--paper-deep,#e8e2d2); } .ds-nav-link:focus-visible { outline:3px solid var(--orange-ink,#b74723); outline-offset:4px; } .ds-nav-link-active { color:var(--paper,#f4f1e8); background:var(--ink,#173e32); }"
+    },
+    {
+      "name": "Calculator Jump Link",
+      "kind": "button",
+      "description": "Underlined first-viewport action with a burnt-orange directional cue.",
+      "html": "<a class=\"ds-jump\" href=\"#calculator\">Ring up your order <span aria-hidden=\"true\">↓</span></a>",
+      "css": ".ds-jump { display:inline-flex; align-items:center; gap:1rem; color:var(--ink,#173e32); font-family:'DM Mono',ui-monospace,monospace; font-weight:500; text-decoration:underline; text-decoration-thickness:1px; text-underline-offset:.25em; } .ds-jump span { color:var(--orange-ink,#b74723); font-size:1.5rem; } .ds-jump:focus-visible { outline:3px solid var(--orange-ink,#b74723); outline-offset:4px; }"
+    },
+    {
+      "name": "Price Ticket",
+      "kind": "card",
+      "refersTo": "price-ticket",
+      "description": "A rotated dark ticket for one oversized changing figure.",
+      "html": "<div class=\"ds-ticket\"><span>The original daily estimate has risen by</span><strong>$340.00</strong><small>since midnight</small></div>",
+      "css": ".ds-ticket { position:relative; display:flex; min-height:300px; padding:3rem; flex-direction:column; justify-content:center; color:var(--paper,#f4f1e8); background:var(--ink,#173e32); font-family:'DM Mono',ui-monospace,monospace; transform:rotate(1.5deg); box-shadow:14px 18px 38px rgba(23,62,50,.18); } .ds-ticket::before { position:absolute; inset:-7px 0 auto; height:14px; background:var(--paper,#f4f1e8); content:''; clip-path:polygon(0 50%,5% 0,10% 50%,15% 0,20% 50%,25% 0,30% 50%,35% 0,40% 50%,45% 0,50% 50%,55% 0,60% 50%,65% 0,70% 50%,75% 0,80% 50%,85% 0,90% 50%,95% 0,100% 50%,100% 100%,0 100%); } .ds-ticket span { max-width:28ch; line-height:1.6; } .ds-ticket strong { margin:1.75rem 0 .3rem; color:var(--lime,#dff29a); font-family:'Fraunces',Georgia,serif; font-size:4.2rem; font-variant-numeric:tabular-nums; line-height:.9; letter-spacing:-.03em; } .ds-ticket small { opacity:.75; }"
+    },
+    {
+      "name": "Menu Item",
+      "kind": "custom",
+      "description": "A ruled café listing with an orange equivalent total.",
+      "html": "<article class=\"ds-menu-item\"><div class=\"ds-menu-title\"><h3>Latte</h3><span>$4.50</span></div><p>Single-origin beans, batch roasted and hand ground.</p><p class=\"ds-menu-equivalent\">That's <strong>75.56</strong> more lattes today</p></article>",
+      "css": ".ds-menu-item { padding:2rem 0; border-top:1px dashed var(--rule,rgba(23,62,50,.28)); color:var(--ink,#173e32); font-family:'DM Mono',ui-monospace,monospace; } .ds-menu-title { display:flex; justify-content:space-between; gap:2rem; } .ds-menu-title h3 { margin:0; font-family:'Fraunces',Georgia,serif; font-size:1.55rem; } .ds-menu-item p { max-width:46ch; margin:.75rem 0; color:var(--copy-muted,#3e5a50); font-size:.86rem; line-height:1.65; } .ds-menu-item .ds-menu-equivalent { color:var(--ink,#173e32); } .ds-menu-equivalent strong { color:var(--orange-ink,#b74723); font-family:'Fraunces',Georgia,serif; font-size:1.4rem; font-variant-numeric:tabular-nums; }"
+    },
+    {
+      "name": "Numeric Field",
+      "kind": "input",
+      "refersTo": "number-input",
+      "description": "A live editable value embedded directly in a ruled calculator row.",
+      "html": "<label class=\"ds-number-field\"><span>Target house price</span><span class=\"ds-number-control\"><span aria-hidden=\"true\">$</span><input aria-label=\"Target house price\" type=\"number\" value=\"750000\"></span></label>",
+      "css": ".ds-number-field { display:flex; align-items:center; justify-content:space-between; gap:2rem; min-height:68px; border-bottom:1px solid rgba(244,241,232,.12); color:var(--paper,#f4f1e8); background:var(--ink,#173e32); font-family:'DM Mono',ui-monospace,monospace; font-size:.85rem; } .ds-number-control { display:flex; align-items:baseline; color:var(--lime,#dff29a); font-family:'Fraunces',Georgia,serif; font-size:1.4rem; } .ds-number-control input { width:8ch; padding:.35rem; border:0; border-radius:0; outline:0; color:var(--lime,#dff29a); background:transparent; font:inherit; font-size:1.4rem; text-align:right; font-variant-numeric:tabular-nums; caret-color:var(--orange,#f06f3c); } .ds-number-control input:focus-visible { outline:3px solid var(--orange,#f06f3c); outline-offset:4px; }"
+    },
+    {
+      "name": "Result Receipt",
+      "kind": "card",
+      "refersTo": "receipt",
+      "description": "A lifted cream receipt that itemizes the live calculator result.",
+      "html": "<aside class=\"ds-receipt\"><div class=\"ds-receipt-top\"><span>Order summary</span><span>NZD</span></div><div class=\"ds-receipt-headline\"><span>Time to save the deposit</span><strong>18.4</strong><span>years</span></div><div class=\"ds-receipt-line\"><span>Deposit needed</span><span>$150,000</span></div><div class=\"ds-receipt-total\"><span>Monthly mortgage</span><strong>$2,864</strong></div></aside>",
+      "css": ".ds-receipt { position:relative; padding:2.6rem 2.8rem; color:var(--ink,#173e32); background:var(--paper,#f4f1e8); font-family:'DM Mono',ui-monospace,monospace; box-shadow:14px 18px 38px rgba(0,0,0,.18); transform:rotate(-.7deg); } .ds-receipt::before { position:absolute; inset:-7px 0 auto; height:14px; background:var(--paper,#f4f1e8); content:''; clip-path:polygon(0 50%,5% 0,10% 50%,15% 0,20% 50%,25% 0,30% 50%,35% 0,40% 50%,45% 0,50% 50%,55% 0,60% 50%,65% 0,70% 50%,75% 0,80% 50%,85% 0,90% 50%,95% 0,100% 50%,100% 100%,0 100%); } .ds-receipt-top,.ds-receipt-line,.ds-receipt-total { display:flex; justify-content:space-between; gap:1.5rem; } .ds-receipt-top { padding-bottom:1rem; border-bottom:2px solid var(--ink,#173e32); font-size:.72rem; text-transform:uppercase; } .ds-receipt-headline { display:grid; grid-template-columns:1fr auto; align-items:end; margin:2rem 0; } .ds-receipt-headline>span:first-child { grid-column:1/-1; } .ds-receipt-headline strong { color:var(--orange-ink,#b74723); font-family:'Fraunces',Georgia,serif; font-size:4rem; font-variant-numeric:tabular-nums; line-height:1; } .ds-receipt-line { padding:.8rem 0; border-top:1px dashed var(--rule,rgba(23,62,50,.28)); font-size:.72rem; } .ds-receipt-total { align-items:end; margin-top:1rem; padding-top:1.5rem; border-top:2px solid var(--ink,#173e32); } .ds-receipt-total strong { font-family:'Fraunces',Georgia,serif; font-size:1.9rem; font-variant-numeric:tabular-nums; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Editorial Café Receipt",
+    "overview": "The system treats a satirical calculator as a refined café artifact: warm cream paper, dark green ink, considered editorial type, menu rules, and receipt geometry. Its personality comes from the tension between polished hospitality design and sober tabular arithmetic rather than from novelty decoration.\n\nFraunces supplies generous, high-contrast headlines and oversized numeric moments; DM Mono makes descriptions, labels, inputs, and calculations feel itemized and exact. Slightly rotated ticket surfaces and torn paper edges provide tactile wit, while the surrounding composition stays spacious, direct, and highly legible.",
+    "keyCharacteristics": [
+      "Cream paper and dark green ink establish the default reading surface.",
+      "Avocado and lime accents belong on dark surfaces; orange and orange ink mark high-attention details according to contrast.",
+      "Editorial display type and monospaced data type keep emotion and arithmetic in productive tension.",
+      "Rules, dashed separators, receipt edges, tabular numerals, and restrained rotation create the café-menu world.",
+      "A direct first-viewport jump leads to the live calculator without hiding the satirical premise."
+    ],
+    "rules": [
+      { "name": "The Surface-Aware Citrus Rule", "body": "Use burnt orange ink on cream paper and brighter citrus orange on dark green; never swap them merely for variety.", "section": "colors" },
+      { "name": "The Green Field Rule", "body": "Large dark fields are deep green, not black, and their light text remains warm cream, not pure white.", "section": "colors" },
+      { "name": "The Editorial-and-Register Rule", "body": "Fraunces expresses the premise and totals; DM Mono explains, labels, and records the calculation.", "section": "typography" },
+      { "name": "The Numeric Alignment Rule", "body": "Changing prices, years, and currency totals use tabular numerals wherever the implementation presents them as comparable data.", "section": "typography" },
+      { "name": "The Shared Edge Rule", "body": "Full-bleed sections may change the field color, but their content edges must return to the same centered shell as the rest of the page.", "section": "layout" },
+      { "name": "The Paper Artifact Rule", "body": "Elevation belongs to ticket and receipt objects only; ordinary sections and menu items remain flat.", "section": "elevation" },
+      { "name": "The No Generic Card Rule", "body": "Do not round content into conventional cards; use paper fields, rules, clipping, and restrained rotation when an object needs a boundary.", "section": "shapes" }
+    ],
+    "dos": [
+      "Do keep cream paper and deep green ink as the dominant field relationship.",
+      "Do reserve avocado and lime for dark surfaces and choose the orange token appropriate to the surface beneath it.",
+      "Do pair Fraunces editorial statements with DM Mono labels, explanations, and live data.",
+      "Do use rules, torn edges, tabular figures, and slight rotation to sustain the café-menu and receipt metaphor.",
+      "Do preserve visible focus, real labels, live result announcements, and reduced-motion behavior.",
+      "Do collapse all paired desktop grids to a clear single-column reading order at 760px and below."
+    ],
+    "donts": [
+      "Don't introduce generic rounded cards, soft dashboard panels, or a broad radius scale.",
+      "Don't use pure black, pure white, or unrelated saturated accents in place of the established botanical and paper palette.",
+      "Don't add shadows to ordinary content sections or animate decorative objects without an interaction purpose.",
+      "Don't turn numeric inputs into decorative readouts; they must remain directly editable and keyboard accessible.",
+      "Don't strand the calculator below introductory content without the first-viewport jump link."
+    ]
+  }
+}
